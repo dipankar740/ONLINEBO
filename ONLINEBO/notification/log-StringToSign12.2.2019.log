@@ -1,0 +1,38 @@
+Message
+You have chosen to subscribe to the topic arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080.
+To confirm the subscription, visit the SubscribeURL included in this message.
+MessageId
+d69d1448-0aab-4cd3-8d9b-55bfada58aa4
+SubscribeURL
+https://sns.ap-southeast-1.amazonaws.com/?Action=ConfirmSubscription&TopicArn=arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080&Token=2336412f37fb687f5d51e6e241dbca52ed37fa345a676f2e3b12b7e82dbcdc66954a10f885edd5e62c71661bc9b2b10d81ccc5cf45c520a838c64ee727cd085055487e34a5157caf5e8db32e16aa7845027bfcec66768be7b1a126cca3c37d7df7a5858648ad00c18607152281548fa60ec6bd97872f42f254b84f124ca776b7
+Timestamp
+2019-02-12T12:40:02.351Z
+Token
+2336412f37fb687f5d51e6e241dbca52ed37fa345a676f2e3b12b7e82dbcdc66954a10f885edd5e62c71661bc9b2b10d81ccc5cf45c520a838c64ee727cd085055487e34a5157caf5e8db32e16aa7845027bfcec66768be7b1a126cca3c37d7df7a5858648ad00c18607152281548fa60ec6bd97872f42f254b84f124ca776b7
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+SubscriptionConfirmation
+
+Message
+{"dateTime":"20190212210924","debitMSISDN":"8801775564352","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6BC1HIWSHJ","transactionStatus":"Completed","transactionType":"10002608","amount":"20.0","currency":"BDT"}
+MessageId
+5bae9876-0a17-5c1c-9764-ccaae9f2d5b1
+Timestamp
+2019-02-12T15:09:25.096Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190212222541","debitMSISDN":"8801676085383","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6BC1HJXNJF","transactionStatus":"Completed","transactionType":"10002608","amount":"10.0","currency":"BDT"}
+MessageId
+b50a4b13-1d97-5e58-a28d-1fcfe85238a0
+Timestamp
+2019-02-12T16:25:41.564Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+

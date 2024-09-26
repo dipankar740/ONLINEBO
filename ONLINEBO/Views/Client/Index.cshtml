@@ -1,0 +1,1279 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+
+    var accData = (IEnumerable<OnlineBODetailModel>)ViewData["Acc"];
+    var accBankData = (IEnumerable<OnlineBODetailModel>)ViewData["AccBank"];
+    var accAuData = (IEnumerable<OnlineBODetailModel>)ViewData["AccAu"];
+    var accNoData = (IEnumerable<OnlineBODetailModel>)ViewData["AccNo"];
+    var accImg = (IEnumerable<OnlineBODetailModel>)ViewData["image"];
+}
+<style>
+    #abc{
+        font-weight:bold;
+    }
+</style>
+
+<script src="~/AngularJS/LoadClientProfile.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#fAcHolderC').prop('checked', true);
+        $("#fAcHolder").show();
+        $('#jAcHolderC').prop('checked', true);
+        $("#jAcHolder").show();
+        $('#bankInfoC').prop('checked', true);
+        $("#bankInfo").show();
+        $('#aAcHolderC').prop('checked', true);
+        $("#aAcHolder").show();
+        $('#n1AcHolderC').prop('checked', true);
+        $("#n1AcHolder").show();
+        $('#n2AcHolderC').prop('checked', true);
+        $("#n2AcHolder").show();
+        $('#docC').prop('checked', true);
+        $("#doc").show();
+
+        $('#fAcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#fAcHolder").show();
+            } else {
+                $("#fAcHolder").hide();
+            }
+        });
+
+        $('#jAcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#jAcHolder").show();
+            } else {
+                $("#jAcHolder").hide();
+            }
+        });
+
+        $('#bankInfoC').click(function (event) {
+            if (this.checked) {
+                $("#bankInfo").show();
+            } else {
+                $("#bankInfo").hide();
+            }
+        });
+
+        $('#aAcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#aAcHolder").show();
+            } else {
+                $("#aAcHolder").hide();
+            }
+        });
+
+        $('#n1AcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#n1AcHolder").show();
+            } else {
+                $("#n1AcHolder").hide();
+            }
+        });
+
+
+        $('#n2AcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#n2AcHolder").show();
+            } else {
+                $("#n2AcHolder").hide();
+            }
+        });
+
+
+        $('#docC').click(function (event) {
+            if (this.checked) {
+                $("#doc").show();
+            } else {
+                $("#doc").hide();
+            }
+        });
+
+    });
+</script>
+
+<div class="jumbotron" style="background-color:white;margin:0;padding:0;">
+
+    <div class="panel panel-primary" style=" border-color: #8a6d3b;">
+        <div class="panel-heading" style="background-color: #8a6d3b; border-color: #8a6d3b;">
+            <h3 class="panel-title">Your Profile Details.   Any Query Call Us On: 16379 or +8809606016379</h3>
+        </div>
+        <div class="panel-body">
+            <div style="float:right">
+            @Html.ActionLink("Print Your Document", "DownloadBO", "Client", new { id = Session["trackingno"].ToString()  }, new { target = "_blank", @class = "btn btn-primary" })
+            </div>
+            <br />
+            <div class="row " id="" style="margin-top:2%;">
+                <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                    <div class="panel panel-danger" style=" border-color: #c1dbdb;">
+                        <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                            <h4 class="panel-title">View</h4>
+                        </div>
+                        <div class="panel-body" id="imgTypeSelectPanel" style="color:green;font-weight:bold;">
+                            @*First A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "fAcHolderC" })  |  Joint A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "jAcHolderC" })  |  Bank Info @Html.CheckBoxFor(m => m.val, new { id = "bankInfoC" })  |  Authorize @Html.CheckBoxFor(m => m.val, new { id = "aAcHolderC" })  |  Nominee 1 @Html.CheckBoxFor(m => m.val, new { id = "n1AcHolderC" })  |  Nominee 2 @Html.CheckBoxFor(m => m.val, new { id = "n2AcHolderC" })  |  Document @Html.CheckBoxFor(m => m.val, new { id = "docC" })*@
+                            First A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "fAcHolderC" })  |  Joint A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "jAcHolderC" })  |  Bank Info @Html.CheckBoxFor(m => m.val, new { id = "bankInfoC" })  | Authorize @Html.CheckBoxFor(m => m.val, new { id = "aAcHolderC" }) | Nominee @Html.CheckBoxFor(m => m.val, new { id = "n1AcHolderC" }) |  Document @Html.CheckBoxFor(m => m.val, new { id = "docC" }) ||
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @foreach (var item in accData)
+            {
+                <div class="row " id="fAcHolder">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        <div class="panel panel-danger" style=" border-color: #c1dbdb;">
+                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                <h4 class="panel-title">First Account Holder</h4>
+                            </div>
+                            <div class="panel-body">
+
+
+                                <div class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:red;">Client Code:</b>
+                                        <span class="form-control">@item.RCODE</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Account Type:</b>
+                                        <span class="form-control">@item.ToC</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Name:</b>
+                                        <span class="form-control">@item.fTitle  @item.fFirstName  @item.fLastName</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Date of Birth:</b>
+                                        <span class="form-control">@string.Format("{0:dd-MMM-yyyy}", item.fDoB)</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:10px" class="row">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info" style="">Occupation:</b>
+                                        <span class="form-control">@item.fOccupation</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Father:</b>
+                                        <span class="form-control">@item.fFName</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Mother:</b>
+                                        <span class="form-control">@item.fMName</span>
+                                    </div>
+
+
+                                </div>
+
+                                <div style="margin-top:10px" class="row ">
+
+                                    <div class="col-md-6" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Address:</b>
+
+                                        <textarea class="form-control" rows="2" readonly>@item.fAddress </textarea>
+                                    </div>
+                                    <div class="col-md-3" data-toggle="tooltip">
+                                        <b class="text-info">City:</b> <span class="form-control">@item.fCity</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Post Code:</b> <span class="form-control">@item.fPostCode</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:10px" class="row ">
+
+
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    @*<div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                    <b style="color:blue;">City:</b> <span class="form-control">@item.fCity</span>
+                                </div>*@
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Division:</b> <span class="form-control">@item.fDivision</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Country:</b> <span class="form-control">@item.fCountry</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Gender:</b> <span class="form-control">@item.fSex</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Nationality:</b> <span class="form-control">@item.fNationality</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info"> Mobile:</b> <span class="form-control">@item.fMobile</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Tel:</b> <span class="form-control">@item.fTel</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Fax:</b> <span class="form-control"> @item.fFax</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">E-mail:</b> <span class="form-control">@item.fEmail</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    @*<div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                    <b style="color:blue;">Nationality:</b> <span class="form-control">@item.fNationality</span>
+                                </div>*@
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">NID:</b> <span class="form-control">@item.fNID</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">TIN:</b> <span class="form-control">@item.fTIN</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Residency:</b> <span class="form-control">@item.fResidency</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Desired Branch:</b> <span class="form-control">@item.DesireBranch1</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    @*<div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                    <b style="color:blue;">Gender:</b> <span class="form-control">@item.fSex</span>
+                                </div>*@
+
+
+                                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                                        <span class="text-info">Name of The Stock Exchange/ Listed Company/Brokerage Firm :</span>
+                                        <span class="form-control">@item.DirectorShare</span>
+                                    </div>
+                                </div>
+
+                                @*<div style="margin-top:13px" class="row ">
+
+                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+
+                                </div>
+                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+
+                                </div>
+                            </div>*@
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @* Joint A/C Holder *@
+            @foreach (var item in accData)
+            {
+                <div class="row " id="jAcHolder">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                <h4 class="panel-title">Joint Account Holder</h4>
+                            </div>
+                            <div class="panel-body">
+
+
+                                <div class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Name:</b> <span class="form-control">@item.jTitle  @item.jFastName  @item.jLastName</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Date of Birth:</b>
+                                        <span class="form-control">@item.jDoB.GetValueOrDefault().ToString("dd-MMMM-yyyy")</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Occupation:</b> <span class="form-control">@item.jOccupation</span>
+                                    </div>
+                                    <div class="col-sm-3">
+
+                                    </div>
+                                </div>
+
+                                @*<div class="row ">
+                                                            <div class="col-sm-4" id="abc" data-toggle="tooltip">
+
+                            </div>
+                                                            <div class="col-sm-4" id="abc" data-toggle="tooltip">
+
+                            </div>
+                                                            <div class="col-sm-4" id="abc" data-toggle="tooltip">
+
+                                                            </div>
+                                                        </div>*@
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Father:</b> <span class="form-control">@item.jFName</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Mother:</b> <span class="form-control">@item.jMName</span>
+                                    </div>
+                                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Address:</b>
+                                        <textarea readonly rows="2" class="form-control">@item.jAddress</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row ">
+
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">City:</b> <span class="form-control">@item.jCity</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Post Code:</b> <span class="form-control">@item.jPostCode</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Division:</b> <span class="form-control">@item.jDivision</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Country:</b> <span class="form-control">@item.jCountry</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Mobile:</b> <span class="form-control">@item.jMobile</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Tel:</b> <span class="form-control">@item.jTel</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Fax:</b> <span class="form-control">@item.jFax</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">E-mail:</b> <span class="form-control">@item.jEmail</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @* Authorize *@
+            @foreach (var item in accAuData)
+            {
+                <div class="row " id="aAcHolder">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                <h4 class="panel-title">Authorizer</h4>
+                            </div>
+                            <div class="panel-body">
+
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Name:</b> <span class="form-control">@item.aTitle  @item.aFirstName  @item.aLastName</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Date of Birth:</b>
+                                        <span class="form-control"> @item.aDoB.GetValueOrDefault().ToString("dd-MMM-yyy")</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Occupation:</b>
+                                        <span class="form-control"> @item.aOccupation</span>
+                                    </div>
+                                </div>
+
+
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Father:</b> <span class="form-control">@item.aFName</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Mother:</b> <span class="form-control">@item.aMName</span>
+                                    </div>
+                                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Address:</b>
+                                        <textarea class="form-control" rows="2" readonly>@item.aAddress</textarea>
+                                    </div>
+                                </div>
+
+
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">City:</b> <span class="form-control">@item.aCity</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Post Code:</b> <span class="form-control">@item.aPostCode</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Division:</b> <span class="form-control">@item.aDivision</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-info">Country:</b> <span class="form-control">@item.aCountry</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Mobile:</b> <span class="form-control">@item.aMobile</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Tel:</b> <span class="form-control">@item.aTel</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">Fax:</b> <span class="form-control">@item.aFax</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b style="color:blue;">E-mail:</b> <span class="form-control">@item.aEmail</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @* Bank Information *@
+            @foreach (var item in accBankData)
+            {
+                <div class="row " id="bankInfo">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        <div class="panel panel-danger" style=" border-color: #c1dbdb;">
+                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                <h4 class="panel-title">Bank Information</h4>
+                            </div>
+                            <div class="panel-body">
+
+
+                                <div class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Bank Name:</b> <span class="form-control">@item.BANKNAME</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Bank Branch:</b> <span class="form-control">@item.BANKBRANCH</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Bank District:</b> <span class="form-control">@item.BANKDISTRICT</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Bank Routing:</b> <span class="form-control">@item.ROUTING</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Bank A/C:</b> <span class="form-control">@item.AC</span>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @* Nominee 1 *@
+            @foreach (var item in accNoData)
+            {
+                <div class="row " id="n1AcHolder">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                <h4 class="panel-title">Nominee 1 of Account Holder</h4>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Title:</b> <span class="form-control">@item.n1Title</span>
+
+                                    </div>
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">First Name:</b> <span class="form-control">@item.n1FirstName</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Last Name:</b> <span class="form-control">@item.n1LastName</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary"> Relationship with A/C Holder:</b>
+                                        <span class="form-control">@item.n1RelWithACHolder</span>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div style="margin-top:13px" class="row ">
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary"> Benificiary Percentage:</b>
+                                        <span class="form-control"> @item.n1Percentage</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary"> Resident:</b><span class="form-control">@item.n1IsResident</span>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary"> Date Of Birth:</b>
+                                        <span class="form-control">@item.n1DoB.GetValueOrDefault().ToString("dd-MMM-yyyy")</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary"> NID No:</b>
+                                        <span class="form-control">@item.n1NID</span>
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Contact Address:</b>
+                                        <textarea class="form-control" rows="2" readonly>@item.n1Address</textarea>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">City:</b><span class="form-control">@item.n1City</span>
+
+                                    </div>
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Post Code:</b><span class="form-control"> @item.n1PostCode</span>
+
+
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Country:</b><span class="form-control"> @item.n1Country</span>
+
+                                    </div>
+                                </div>
+
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Mobile:</b><span class="form-control"> @item.n1Mobile</span>
+
+                                    </div>
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Telephone:</b><span class="form-control"> @item.n1Tel</span>
+
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Fax:</b><span class="form-control"> @item.n1Fax</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Email:</b><span class="form-control"> @item.n1Email</span>
+
+                                    </div>
+                                </div>
+
+
+
+                                @* Guardian 1 *@
+                                <div style="margin-top:13px" class="row " id="g1AcHolder">
+                                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                                        <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                                <h4 class="panel-title">Gurdian of Nominee 1</h4>
+                                            </div>
+                                            <div class="panel-body">
+
+
+                                                <div class="row ">
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Title:</b><span class="form-control"> @item.g1Title</span>
+
+                                                    </div>
+
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">First Name:</b><span class="form-control"> @item.g1FirstName</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Last Name:</b><span class="form-control"> @item.g1LastName</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Relationship With Nominee:</b><span class="form-control"> @item.g1RelWithNominee</span>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div style="margin-top:13px" class="row ">
+
+
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Date Of Birth (Minor):</b>
+                                                        <span class="form-control"> @item.g1DoBMinor.GetValueOrDefault().ToString("dd-MMM-yyyy")</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Maturity Date (Minor):</b>
+                                                        <span class="form-control"> @item.g1MaturityDoM.GetValueOrDefault().ToString("dd-MMM-yyyy")</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Residency Status:</b>
+                                                        <span class="form-control"> @item.g1IsResident</span>
+
+                                                    </div>
+
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Date Of Birth:</b>
+                                                        <span class="form-control"> @item.g1DoB.GetValueOrDefault().ToString("dd-MMM-yyyy")</span>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div style="margin-top:13px" class="row ">
+                                                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Contact Address: </b>
+                                                        <textarea class="form-control" readonly rows="2">@item.g1Address</textarea>
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">City: </b>: <span class="form-control">@item.g1City</span>
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Post Code:</b> <span class="form-control">@item.g1PostCode</span>
+                                                    </div>
+
+                                                </div>
+
+
+
+
+
+                                                <div style="margin-top:13px" class="row ">
+
+
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Division:</b> <span class="form-control">@item.g1Division</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Country:</b> <span class="form-control">@item.g1Country</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary"> NID No:</b> <span class="form-control">@item.g1NID</span>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div style="margin-top:13px" class="row ">
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Mobile:</b> <span class="form-control">@item.g1Mobile</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Telephone No:</b> <span class="form-control">@item.g1Tel</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Fax:</b> <span class="form-control">@item.g1Fax</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Email:</b> <span class="form-control">@item.g1Email</span>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Nominee 2 *@
+                <div class="row " id="n2AcHolder">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                <h4 class="panel-title">Nominee 2 of Account Holder</h4>
+                            </div>
+                            <div class="panel-body">
+
+
+                                <div class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Title:</b> <span class="form-control">@item.n2Title</span>
+
+                                    </div>
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">First Name:</b> <span class="form-control">@item.n2FirstName</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Last Name:</b> <span class="form-control">@item.n2LastName</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Relationship with A/C Holder:</b> <span class="form-control">@item.n2RelWithACHolder</span>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Benificiary Percentage:</b> <span class="form-control">@item.n2Percentage</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Resident:</b> <span class="form-control">@item.n2IsResident</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Date Of Birth:</b>
+                                        <span class="form-control">@item.n2DoB.GetValueOrDefault().ToString("dd-MMM-yyyy")</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">NID No:</b> <span class="form-control">@item.n2NID</span>
+
+                                    </div>
+                                </div>
+
+
+                                <div style="margin-top:13px" class="row ">
+                                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Contact Address:</b>
+                                        <textarea class="form-control" readonly rows="2">@item.n2Address</textarea>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">City:</b>
+                                        <span class="form-control">@item.n1City</span>
+                                    </div>
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Post Code:</b> <span class="form-control">@item.n2PostCode</span>
+
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:13px" class="row ">
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Division:</b> <span class="form-control">@item.n2Division</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Country:</b> <span class="form-control">@item.n2Country</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Mobile:</b> <span class="form-control">@item.n2Mobile</span>
+
+                                    </div>
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Telephone:</b> <span class="form-control">@item.n2Tel</span>
+
+
+                                    </div>
+                                </div>
+
+
+                                <div style="margin-top:13px" class="row ">
+
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Fax:</b> <span class="form-control">@item.n2Fax</span>
+
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <b class="text-primary">Email:</b> <span class="form-control">@item.n2Email</span>
+
+                                    </div>
+                                </div>
+
+
+                                @* Guardian 2 *@
+                                <div class="row " id="g2AcHolder">
+                                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                                        <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                                <h4 class="panel-title">Gurdian of Nominee 2</h4>
+                                            </div>
+                                            <div class="panel-body">
+
+
+                                                <div class="row ">
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Title:</b> <span class="form-control">@item.g2Title</span>
+
+                                                    </div>
+
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">First Name:</b> <span class="form-control">@item.g2FirstName</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Last Name:</b> <span class="form-control">@item.g2LastName</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Relationship With Nominee:</b>
+                                                        <span class="form-control">@item.g2RelWithNominee</span>
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div style="margin-top:13px" class="row ">
+
+
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Date Of Birth (Minor):</b>
+
+                                                        <span class="form-control">@item.g2DoB.GetValueOrDefault().ToString("dd-MMM-yyyy")</span>
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Maturity Date (Minor):</b>
+                                                        <span class="form-control">@item.g2MaturityDoM</span>
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Residency Status:</b>
+                                                        <span class="form-control">@item.g2IsResident</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Date Of Birth:</b>
+                                                        <span class="form-control">@item.g2DoB.GetValueOrDefault().ToString("dd-MMM-yyyy")</span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div style="margin-top:13px" class="row ">
+                                                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Contact Address:</b>
+                                                        <textarea class="form-control" readonly rows="2">@item.g2Address</textarea>
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">City:</b>
+                                                        <span class="form-control">@item.g2City</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Post Code:</b>
+                                                        <span class="form-control">@item.g2PostCode</span>
+
+                                                    </div>
+
+                                                </div>
+
+
+
+
+
+                                                <div style="margin-top:13px" class="row ">
+
+
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Division:</b>
+                                                        <span class="form-control">@item.g2Division</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Country:</b>
+                                                        <span class="form-control">@item.g2Country</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+
+                                                        <b class="text-primary">NID No::</b>
+                                                        <span class="form-control">@item.g2NID</span>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div style="margin-top:13px" class="row ">
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Mobile:</b>
+                                                        <span class="form-control">@item.g2Mobile</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Telephone No:</b>
+                                                        <span class="form-control">@item.g2Tel</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Fax:</b>
+                                                        <span class="form-control">@item.g2Fax</span>
+
+                                                    </div>
+                                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                        <b class="text-primary">Email:</b>
+                                                        <span class="form-control">@item.g2Email</span>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @* Document 2 *@
+            @foreach (var item in accImg)
+            {
+
+                <div class="row " id="doc">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                            <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                                <h4 class="panel-title">All Uploaded Documents</h4>
+                            </div>
+                            <div class="panel-body">
+
+                                @* First A/C Holder *@
+                                <div class="row " id="">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="fImage" src="data:image/jpg;base64,@Convert.ToBase64String(item.fImage, 0, item.fImage.Length)" alt=" royal capital" />
+                                            <div class="caption">
+                                                <h4>First A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">First A/C Holder Image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="fFontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.fNIDFont, 0, item.fNIDFont.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>First A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="fBackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.fNIDBack, 0, item.fNIDBack.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>First A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="fSing" src="data:image/jpg;base64,@Convert.ToBase64String(item.fSig, 0, item.fSig.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>First A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">First A/C Holder Signature</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @* Joint A/C Holder *@
+                                <div class="row " id="">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="jImage" src="data:image/jpg;base64,@Convert.ToBase64String(item.jImage, 0, item.jImage.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Joint A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">Joint A/C Holder Image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="jFontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.jNIDFont, 0, item.jNIDFont.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Joint A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="jBackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.jNIDBack, 0, item.jNIDBack.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Joint A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="jSing" src="data:image/jpg;base64,@Convert.ToBase64String(item.jSig, 0, item.jSig.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Joint A/C Holder</h4>
+                                                <p style="font-size:12px;color:red;">Joint A/C Holder Signature</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @* Authorize *@
+                                <div class="row " id="">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="aImage" src="data:image/jpg;base64,@Convert.ToBase64String(item.aImage, 0, item.aImage.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Authorize</h4>
+                                                <p style="font-size:12px;color:red;">Authorize Image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="aFontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.aNIDFont, 0, item.aNIDFont.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Authorize</h4>
+                                                <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="aBackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.aNIDBack, 0, item.aNIDBack.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Authorize</h4>
+                                                <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="aSing" src="data:image/jpg;base64,@Convert.ToBase64String(item.aSig, 0, item.aSig.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Authorize</h4>
+                                                <p style="font-size:12px;color:red;">Authorize Signature</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @* Nominee 1 *@
+                                <div class="row " id="">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n1Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1Image, 0, item.n1Image.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 1</h4>
+                                                <p style="font-size:12px;color:red;">Nominee 1 Image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n1FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1NIDFont, 0, item.n1NIDFont.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 1</h4>
+                                                <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n1BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1NIDBack, 0, item.n1NIDBack.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 1</h4>
+                                                <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n1Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1Sig, 0, item.n1Sig.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 1</h4>
+                                                <p style="font-size:12px;color:red;">Nominee 1 Signature</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @* Guardian 1 *@
+                                <div class="row " id="">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g1Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1Image, 0, item.g1Image.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 1</h4>
+                                                <p style="font-size:12px;color:red;">Guardian 1 Image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g1FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1NIDFont, 0, item.g1NIDFont.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 1</h4>
+                                                <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g1BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1NIDBack, 0, item.g1NIDBack.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 2</h4>
+                                                <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g1Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1Sig, 0, item.g1Sig.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 1</h4>
+                                                <p style="font-size:12px;color:red;">Guardian 1 Signature</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @* Nominee 2 *@
+                                <div class="row " id="">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n2Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2Image, 0, item.n2Image.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 2</h4>
+                                                <p style="font-size:12px;color:red;">Nominee 2 Image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n2FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2NIDFont, 0, item.n2NIDFont.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 2</h4>
+                                                <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n2BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2NIDBack, 0, item.n2NIDBack.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 2</h4>
+                                                <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="n2Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2Sig, 0, item.n2Sig.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Nominee 2</h4>
+                                                <p style="font-size:12px;color:red;">Nominee 2 Signature</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @* Guardian 2 *@
+                                <div class="row " id="">
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g2Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2Image, 0, item.g2Image.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 2</h4>
+                                                <p style="font-size:12px;color:red;">Guardian 2 Image</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g2FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2NIDFont, 0, item.g2NIDFont.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 2</h4>
+                                                <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g2BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2NIDBack, 0, item.g2NIDBack.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 2</h4>
+                                                <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                        <div class="thumbnail">
+                                            <img id="g2Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2Sig, 0, item.g2Sig.Length)" alt="Royal Capital" />
+                                            <div class="caption">
+                                                <h4>Guardian 2</h4>
+                                                <p style="font-size:12px;color:red;">Guardian 2 Signature</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*-----------------*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "CreateNewBO";
+    Layout = "~/Views/Shared/_LayoutBranch.cshtml";
+}
+@model ONLINEBO.Models.HomeModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+    
+        <div class="panel panel-primary" style="border-color: #86322c;">
+            <div class="panel-heading" style="background-color: #86322c; border-color: #86322c;">
+                <h3 class="panel-title">Create New BO Account</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row" style="padding-top: 10px; padding-left: 16px; color: red;">
+
+                    <div class="col-sm-12">
+                        @TempData["message"]
+
+                    </div>
+                </div>
+
+                @*<div class="row">
+            <div class="col-sm-6" style="padding-top:10px;">
+                <div class="">
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control text-label", @placeholder = "First Name *", @required = "required" })
+                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="col-sm-6" style="padding-top:10px;">
+                <div class="">
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control text-label", @placeholder = "Last Name *",@required = "required" })
+                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "error" })
+                </div>
+            </div>
+        </div>*@
+
+                @*<div class="row">
+
+        </div>*@
+
+                <div class="col-sm-6" style="padding-top:10px;">
+                    <div class="">
+                        @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control text-label", @required = "required", @placeholder = "Mobile" })
+                        @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6" style="padding-top:10px;">
+                    <div class="">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control text-label ", @placeholder = "Email *", @required = "required", @type = "email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+                <div class="row" style="padding-top: 20px; padding-left: 16px; float:left;">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input type="submit" value="Create Account" class="btn btn-info" />
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+}
+
+

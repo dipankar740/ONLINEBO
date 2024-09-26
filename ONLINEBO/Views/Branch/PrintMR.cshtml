@@ -1,0 +1,47 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "PrintMR";
+    Layout = "~/Views/Shared/_LayoutBranch.cshtml";
+
+    var print = (IEnumerable<OnlineBODetailModel>)ViewData["printmr"];
+}
+
+
+<script type="text/javascript">
+
+    function btn_print_onclick() {
+        //var div_print = document.getElementById('boReport');
+        //newWin = window.open("");
+        //newWin.document.write(div_print.outerHTML);
+        window.print();
+        window.close();
+    }
+
+</script>
+
+
+@using (Html.BeginForm())
+{
+    foreach(var item in print)
+    { 
+
+            <div id="boReport" style="line-height:20px; width:690px; border:1px solid;border-radius:10px;">
+                <table style=" margin-left:20px;">
+                    <tr style="height:30px;"><td><img id="Image1" src="~/images/logoSmall.jpg" alt="Royal Capital" style="height:70px;width:100px;" /></td><td></td><td>@Session["BRANCHNAME"].ToString()</td><td></td></tr>
+                    <tr style="height:30px;"><td></td><td><b><u>BO and CDBL Charge Money Receipt</u></b></td><td></td><td></td></tr>
+                    <tr style="height:30px;"><td>MR #: <span id="lblMR_NO">@item.MR_NO</span></td><td></td><td>Date: <span id="lblDate">@item.DATE</span></td><td></td></tr>
+                    <tr style="height:30px;"><td>Client Code: </td><td style="text-decoration:underline"><span id="lblClientCode">@item.RCODE</span></td><td></td><td></td></tr>
+                    <tr style="height:30px;"><td>Received with thanks from</td><td style="text-decoration:underline; font-weight:bold;"><span id="lblName">@item.NAME</span></td><td></td><td></td></tr>
+                    <tr style="height:30px;"><td>For CDBL annual charges for the year </td><td style="text-decoration:underline"><span id="lblyear">@item.fis</span></td><td></td><td></td></tr>
+                    <tr style="height:30px;"><td>Taka </td><td style="text-decoration:underline"><span id="lblAmount">@item.tamnt</span>/-</td><td>in Cash</td><td></td></tr>
+
+                </table>
+                <br />
+                * This is a computer generated money receipt, do not require any signature.
+                <br /><br />
+            </div>
+
+            <button id="btn_print" onclick="return btn_print_onclick()">Print</button>
+    }
+}

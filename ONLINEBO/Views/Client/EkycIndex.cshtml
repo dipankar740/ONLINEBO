@@ -1,0 +1,454 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.EkycModel
+@{
+    Layout = null;
+
+    var accImg = (OnlineBODetailModel)ViewData["imageForEKYC"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EkycIndex</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Content/jquery-1.11.0.min.js"></script>
+    <script src="~/Content/jquery-ui.min.js"></script>
+    <style>
+        video {
+            transform: scaleX(-1);
+            margin-top: 5px;
+            width: 250px;
+            height: 300px
+        }
+
+        /* Flipping the canvas image as it was not mirror view */
+        #canvas {
+            transform: scaleX(-1);
+            filter: FlipH;
+        }
+        @@media(max-width: 400px) {
+          #dd{
+                 width:100%
+             }
+        }
+        @@media(min-width: 600px) {
+            #dd {
+                width: 95%
+            }
+        }
+        @@media(min-width: 801px) {
+            #dd {
+                width: 80%
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
+            $('.datepicker').datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+0"
+            }); //Initialise any date pickers
+        });
+    </script>
+</head>
+<body>
+
+
+    <div>
+        <div class="container" style="margin-top: 50px; ">
+
+            <style>
+                .text-label {
+                    width: 100%;
+                    display: block;
+                    border: none;
+                    border-bottom: 2px solid #999;
+                    padding: 6px 30px;
+                    font-family: Poppins;
+                    box-sizing: border-box;
+                    border-radius: 0;
+                }
+            </style>
+
+            <center>
+                <div id="dd" class="row" style="background-color: white; border-radius: 15px; padding:5%; box-shadow: 5px 5px 5px 5px #dbdad3; ">
+
+                    <div class="col-sm-4" style="margin-top: 2%;">
+                        <img src='~/images/ekyc-image.jpg' class='img-fluid ' alt='Royal Capital' style="height:100%;width:100%;">
+                        <br /><br />
+                    </div>
+
+
+
+                    <div class="col-sm-6" style="float:right;">
+                        <br />
+                        <span class="text-center" style="font-family:'Times New Roman';font-weight:bold;font-size:30px;">Give Your Information</span>
+                        @using (Html.BeginForm("EkycIndex", "Client", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+
+
+                            <div class="panel-body">
+
+                                @*<div class="row" style="padding-top:10px;color:red;">
+
+                                    <div class="col-sm-12">
+                                        @TempData["message"]
+                                        
+                                    </div>
+                                </div>*@
+                                <div class="row" style="padding-top:10px;color:green;">
+                                    <div class="col-sm-12">
+                                        @ViewBag.LoginSucc
+                                    </div>
+                                </div>
+
+                                <form role="form">
+
+                                    <div class="form-group">
+                                        <p class="text-left">Your NID/Smart Card Number</p>
+                                        <div class="input-group" id="i">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-user"></span>
+                                            </span>
+
+                                            @Html.TextBoxFor(model => model.national_id, new { @class = "form-control", @placeholder = "Your NID/Smart Card Number", @required = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <p class="text-left">Date of Birth As Per NID</p>
+                                        <div class="input-group" id="i">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                            @*@Html.TextBoxFor(model => model.person_dob, new { onfocus = "(this.type='date')", @class = "form-control text-label ", 
+                                           @placeholder = "Date Of Birth As Per NID", @required = "required" })*@
+                                            @Html.TextBoxFor(model => model.person_dob, new { @class = "form-control datepicker ", 
+                                           @placeholder = "dd/mm/yyyy", @required = "required", @readonly="true"})
+                                        </div>
+                                    </div>
+                                    <p class="text-left">Upload Your Passport Size Image</p>
+                                    <p>
+                                        <input type="radio" id="upload" name="fav_language" value="Upload">
+                                        <label for="upload">Upload Image</label>
+                                        <input type="radio" id="capture" name="fav_language" value="Capture">
+                                        <label for="capture">Capture Image</label>
+                                    </p>
+                                    <div class="text-left">
+                                        <div class="thumbnail" style=" height: 350px; width: 300px;">
+                                            <div id="divUpload" style="display:none">
+                                                <img style="padding-bottom:5px; height: 300px; width: 290px;" id="fImage" src="data:image/jpg;base64,@Convert.ToBase64String(accImg.fImage, 0, accImg.fImage.Length)" alt=" royal capital" />
+
+                                                @Html.TextBoxFor(Model => Model.File, new { type = "file", id = "uploadFile", onchange = "fImageURL(this)" })
+                                                @*<p class="text-center">Or</p>*@
+                                            </div>
+
+
+                                            <div id="divCam" style="display:none; margin-top:2px;padding:2px;">
+                                                <div id="serverMsg" style="display:none; width:450px" class="alert alert-success" role="alert">
+                                                    Image uploaded successfully!
+                                                </div>
+                                                @*<p><span id="errorMsg"></span></p>*@
+                                                <span id="btnStart" class="btn btn-info">OPEN CAMERA</span>
+                                                <span style="display:none" id="btnStop" class="btn btn-danger">STOP</span>
+                                                <span style="display:none" class="btn btn-primary" id="btnCapture">Capture</span>
+
+                                                <video id="video" playsinline autoplay alt="Webcam video stream"></video>
+                                                <canvas style="display:none" id="canvas" width="250" height="300" alt="Canvas image"></canvas>
+                                                <span style="display:none" class="btn btn-info" id="btnSave">Confirm</span>
+                                                @Html.TextBoxFor(Model => Model.person_photo, new { type = "hidden", id = "capturePhoto" })
+                                                <span style="display:none" id="btnRetake" class="btn btn-warning">Retake </span>
+                                            </div>
+                                            <br />
+                                            <p style="font-size:12px;color:green;">@ViewBag.userimg</p>
+                                            <span id="errMsg" style="font-size: 15px; color: darkgreen; font-weight: bold;"></span>
+                                        </div>
+                                        <div class="row" style="padding-top:5px;color:red;">
+
+                                            <div class="col-sm-12">
+                                                @TempData["message"]
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @*<p class="text-left">Your NID/Smart Card Number</p>*@
+                                        <div class="input-group" id="i">
+                                            @Html.TextBoxFor(model => model.mobile_otp, new {@id="otpBox", @style="display:none", @class = "form-control text-label ", @placeholder = "Enter Your OTP" })
+                                            @*<span class="input-group-addon">
+                                                
+                                            </span>*@
+                                            @*<button class="btn btn-primary btn-block" type="submit" id="opt" name="otpbutton" 
+                                                        formaction='@Url.Action("SendOTP", "Client")'>Send OTP</button>*@
+                                            <span class="btn btn-primary btn-block"  id="btnOTP" 
+                                                        >Send OTP</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-3 col-sm-offset-3 col-xs-12 col-sm-8 col-md-8  padding-right-zero">
+                                            <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("EkycIndex", "Client" , new {id = "fImage" })' 
+                                                    style="display:none; font-family:'Times New Roman';font-weight:bold;font-size:20px;" class="btn btn-success btn-block">Continue</button>
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                </form>
+                            </div>
+
+
+
+                        }
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+    <script>
+        function fImageURL(input) {
+            if (input.files && input.files[0]) {
+                //$('#capturePhoto').val('')
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#fImage').attr('src', e.target.result).width().height();
+                }; reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $('input[type=radio][name=fav_language]').change(function () {
+            if (this.value == 'Upload') {
+               // console.log("sdsd")
+                $('#divUpload').show();
+                $('#divCam').hide();
+                $('#capturePhoto').val('')
+            }
+            else if (this.value == 'Capture') {
+               // console.log("rer")
+                $('#divUpload').hide();
+                $('#divCam').show();
+                $('#uploadFile').val('');
+
+                $("#btnStart").show();
+                $("#btnStop").hide();
+                $("#btnCapture").hide();
+                $("#btnSave").hide();
+
+                $("#btnRetake").hide();
+                $("#canvas").hide();
+                $("#video").hide();
+
+            }
+        });
+
+        function showUpload() {
+            $('#divCam').show()
+        }
+
+        $('#btnOTP').click(function () {
+            var nid = $('#national_id').val();
+            var dob = $('#person_dob').val();
+           // var uploadPhoto = $('#uploadFile').val();
+            var capturePhoto = $('#capturePhoto').val();
+
+            if (nid.length == 0 || dob.length == 0) {
+                document.getElementById("errMsg").innerHTML = "Please insert NID and DOB";
+              //  console.log("Please insert NID and DOB ")
+                return false
+            }
+
+            if ($('#uploadFile').get(0).files.length === 0 && capturePhoto.length == 0) {
+                document.getElementById("errMsg").innerHTML = "Please upload or capture your picture ";
+               // console.log("Please upload or capture your picture ")
+                return false
+            }
+            //console.log("Okay!")
+            $('#btnOTP').hide();
+            $('#fImage').show();
+             $.ajax({
+                "type": "POST",
+                "url": '@Url.Action("SendOTP", "Client" )',
+              
+               // "data": JSON.stringify({ name: imagebase64data }),
+                "contentType": 'application/json',
+                 beforeSend: function () {
+                     document.getElementById("errMsg").innerHTML="Please Wait For OTP........."
+                 },
+                success: function (result) {
+                   if(result.success)
+                   {                                         
+                       $('#Fimage').show()
+                       $('#otpBox').show()
+                       document.getElementById("errMsg").innerHTML = result.msg;
+                   }
+                   else if (!result.success) {
+                       document.getElementById("errMsg").innerHTML = result.msg;
+                       
+                   }
+                },
+                 error: function (result) {
+                   
+                     document.getElementById("errMsg").innerHTML = "OTP Sent Failed !!! Plese Try Again Later";
+                 
+                }
+            });
+            //if (nid.length > 0 && dob.length > 0) {
+            //    console.log("Please Invalid")
+            //    return false
+            //}
+
+           // console.log(nid + " " + capturePhoto)
+        })
+    </script>
+
+    <script>
+        const video = document.querySelector("#video");
+
+        $('#btCl').click(function () {
+            console.log("sss")
+          //  destCtx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        // Basic settings for the video to get from Webcam
+        const constraints = {
+            audio: false,
+            video: {
+                width: 250,
+                height: 300
+            }
+        };
+
+        $('#btnStart').click(function () {
+            $("#video").show();
+            // This condition will ask permission to user for Webcam access
+            if (navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia(constraints)
+                    .then(function (stream) {
+                        video.srcObject = stream;
+
+                    })
+                    .catch(function (err0r) {
+                        console.log("Something went wrong!");
+                    });
+                $("#btnStart").hide();
+                $("#btnStop").show();
+                $("#btnCapture").show();
+                $("#btnSave").hide();
+            }
+        });
+
+        function stop(){
+            const stream = video.srcObject;
+            const tracks = stream.getTracks();
+
+            for (let i = 0; i < tracks.length; i++) {
+                const track = tracks[i];
+                track.stop();
+            }
+            video.srcObject = null;
+        }
+
+        $('#btnStop').click(function () {
+            // This condition will ask permission to user for Webcam access
+            //stop();
+            //function stop(e) {
+               stop();
+            $("#btnStart").show();
+            $("#btnStop").hide();
+            $("#btnCapture").hide();
+            $("#btnSave").hide();
+          //  }
+        });
+
+        $('#btnRetake').click(function () {
+
+            $("#btnStart").hide();
+            $("#btnStop").show();
+            $("#btnCapture").show();
+            $("#btnSave").hide();
+            $("#btnRetake").hide();
+            $("#canvas").hide();
+            $("#video").show();
+        });
+
+
+        // Below code to capture image from Video tag (Webcam streaming)
+        const btnCapture = document.querySelector("#btnCapture");
+        const canvas = document.getElementById('canvas');
+
+        btnCapture.addEventListener('click', function () {
+            $("#canvas").show();
+            const context = canvas.getContext('2d');
+            // Capture the image into canvas from Webcam streaming Video element
+            context.drawImage(video, 0, 0);
+
+            //const stream = video.srcObject;
+            //const tracks = stream.getTracks();
+
+            //for (let i = 0; i < tracks.length; i++) {
+            //    const track = tracks[i];
+            //    track.stop();
+            //}
+            //video.srcObject = null;
+            //stop();
+
+            $("#video").hide();
+            $("#btnStop").hide();
+            $("#btnCapture").hide();
+            $("#btnSave").show();
+            $("#btnRetake").show();
+        });
+
+        // Upload image to server - ajax call - with the help of base64 data as a parameter
+        const btnSave = document.querySelector("#btnSave");
+
+        btnSave.addEventListener('click', async function () {
+            // Below new canvas to generate flip/mirror image from existing canvas
+            const destinationCanvas = document.createElement("canvas");
+            const destCtx = destinationCanvas.getContext('2d');
+
+            destinationCanvas.height = 300;
+            destinationCanvas.width = 250;
+
+            destCtx.translate(video.videoWidth, 0);
+            destCtx.scale(-1, 1);
+            destCtx.drawImage(document.getElementById("canvas"), 0, 0);
+
+            // Get base64 data to send to server for upload
+            let imagebase64data = destinationCanvas.toDataURL("image/png");
+            //console.log(imagebase64data)
+            imagebase64data = imagebase64data.replace('data:image/png;base64,', '');
+
+            $('#capturePhoto').val(imagebase64data)
+           // $('#uploadFile').val('')
+            //console.log($('#capturePhoto').val())
+           // console.log(JSON.stringify(imagebase64data));
+            @*if (imagebase64data) {
+                @Session["imageData"] = imagebase64data;
+            }*@
+
+
+            $("#btnSave").hide();
+            $("#btnRetake").hide();
+            stop();
+           
+
+
+
+        });
+    </script>
+</body>
+</html>

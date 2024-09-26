@@ -1,0 +1,11 @@
+Message
+{"dateTime":"20190904102228","debitMSISDN":"01919131273","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6I49Q2HCAR","transactionStatus":"Completed","transactionReference":"jr7385","transactionType":"10002529","amount":"100.0","currency":"BDT"}
+MessageId
+49110b87-4679-5f13-b031-5e6e783dd1ef
+Timestamp
+2019-09-04T04:22:28.976Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+

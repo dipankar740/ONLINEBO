@@ -1,0 +1,194 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "Authorize Info";
+    Layout = "~/Views/Shared/_LayoutAgent.cshtml";
+    var accAutho = (IEnumerable<OnlineBODetailModel>)ViewData["authoSelect"];
+}
+
+
+
+<style>
+    #abc {
+        float: left;
+        position: relative;
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        if ($("#adob").val() == "01/01/1900 00:00:00")
+            $("#adob").val("");
+
+        $("#aTitle").change(function () {
+            $("#aTitleH").val($("#aTitle").val());
+        });
+
+    });
+</script>
+    
+<div class="jumbotron" style="background-color:white;margin:0;padding:0;">
+@foreach(var item in accAutho)
+    {
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+        <br />
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Authorize Information</h3>
+            </div>
+            <div class="panel-body">
+                @* Show Message *@
+
+                <div class="row" style="padding-top: 10px; color: green;">
+                    @if (Session["MessageBank"] != null)
+                    {
+                        @Session["MessageBank"].ToString();
+                    }
+
+                </div>
+                @* End Show Message *@
+                <div class="row ">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @if(item.aTitle1=="")
+                        { 
+                        @Html.DropDownListFor(m => m.aTitle, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Title", new { @class = "form-control", placeholder = "Residency", @id = "aTitle", required = "required" })
+                        }
+                        @if (item.aTitle1 != "")
+                        {
+                            @Html.DropDownListFor(m => m.aTitle, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), item.aTitle1, new { @class = "form-control", placeholder = "Residency", @id = "aTitle", required = "required" })
+                        }
+                        
+                        @Html.HiddenFor(m => m.aTitle1, new { @class = "form-control", Value = @item.aTitle1, id = "aTitleH" })
+
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.aFirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.aFirstName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aFirstName, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.aLastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.aLastName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aLastName, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-3 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.aOccupation, new { @class = "form-control text-label", @title = "Occupation", @placeholder = "Occupation", Value = @item.aOccupation, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aOccupation, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.aDoB, new { @class = "form-control datepicker", placeholder = "Date Of Birth (mm / dd / yyyy)", Value = @item.aDoB, id = "adob", required = "required" })
+                        @Html.ValidationMessageFor(m => m.aDoB)
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aFName, new { @class = "form-control text-label", @title = "Father's/Husband Name", @placeholder = "Father's/Husband Name", Value = @item.aFName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aFName, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aMName, new { @class = "form-control text-label", @title = "Mother's Name", @placeholder = "Mother's Name", Value = @item.aMName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aMName, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aNID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.aNID, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aNID, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aAddress, new { @class = "form-control text-label", @title = "Contact Address", @placeholder = "Contact Address", Value = @item.aAddress, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aAddress, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aCity, new { @class = "form-control text-label", @title = "City", @placeholder = "City", Value = @item.aCity, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aCity, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aPostCode, new { @class = "form-control text-label", @title = "Post Code", @placeholder = "Post Code", Value = @item.aPostCode, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aPostCode, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aDivision, new { @class = "form-control text-label", @title = "Division", @placeholder = "Division", Value = @item.aDivision, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aDivision, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aCountry, new { @class = "form-control text-label", @title = "Country", @placeholder = "Country", Value = @item.aCountry, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aCountry, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aMobile, new { @class = "form-control text-label", @title = "Mobile", @placeholder = "Mobile", Value = @item.aMobile, required = "required" })
+                        @Html.ValidationMessageFor(m => m.aMobile, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aTel, new { @class = "form-control text-label", @title = "Tel", @placeholder = "Tel" ,Value=@item.aTel})
+                        @Html.ValidationMessageFor(m => m.aTel, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aFax, new { @class = "form-control text-label", @title = "Fax", @placeholder = "Fax" ,Value=@item.aFax})
+                        @Html.ValidationMessageFor(m => m.aFax, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.aEmail, new { @class = "form-control text-label", @title = "E-mail", @placeholder = "E-mail" ,Value=@item.aEmail})
+                        @Html.ValidationMessageFor(m => m.aEmail, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="panel panel-danger">
+            <div class="panel-body">
+                <div style="float:right;">
+                    <input type="submit" value="Save and Continue" class="btn btn-primary" />
+                    <a href="NomineeInfo"> <input type="button" value="Skip >>|" class="btn btn-danger" /> </a>
+                </div>
+            </div>
+        </div>
+}
+
+    }
+</div>
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

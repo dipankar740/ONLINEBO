@@ -1,0 +1,154 @@
+Message
+{"dateTime":"20190624002335","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO3VDE6I1","transactionStatus":"Completed","transactionType":"10002529","amount":"288.0","currency":"BDT"}
+MessageId
+908dfd32-110c-50ec-956d-a8bbd4eb1630
+Timestamp
+2019-06-23T18:23:35.829Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624002520","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO2VDEGHG","transactionStatus":"Completed","transactionType":"10002529","amount":"382.0","currency":"BDT"}
+MessageId
+e72e1afe-1bf9-59b4-b3a6-4f77dda95282
+Timestamp
+2019-06-23T18:25:20.838Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624002712","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO0VDENWM","transactionStatus":"Completed","transactionType":"10002529","amount":"192.0","currency":"BDT"}
+MessageId
+215d6e06-5907-5028-ae96-3b8f9fc7e0ff
+Timestamp
+2019-06-23T18:27:12.961Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624002821","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO2VDEUEK","transactionStatus":"Completed","transactionType":"10002529","amount":"272.0","currency":"BDT"}
+MessageId
+0cf55df7-54a1-5c28-a9c8-087e93a40290
+Timestamp
+2019-06-23T18:28:21.828Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624002934","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO3VDEZDH","transactionStatus":"Completed","transactionType":"10002529","amount":"224.0","currency":"BDT"}
+MessageId
+60b17095-7ee0-55ee-8064-251cb9af6758
+Timestamp
+2019-06-23T18:29:35.075Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003110","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO5VDF8A3","transactionStatus":"Completed","transactionType":"10002529","amount":"246.0","currency":"BDT"}
+MessageId
+e22ae278-9e6f-562a-a669-b7f159c12d86
+Timestamp
+2019-06-23T18:31:10.726Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003239","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO5VDFDQ7","transactionStatus":"Completed","transactionType":"10002529","amount":"181.0","currency":"BDT"}
+MessageId
+55073300-f06f-53f6-82f2-668938670743
+Timestamp
+2019-06-23T18:32:40.096Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003343","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO4VDFKDC","transactionStatus":"Completed","transactionType":"10002529","amount":"251.0","currency":"BDT"}
+MessageId
+c7e637b7-171b-5fff-bf46-623edf53528c
+Timestamp
+2019-06-23T18:33:44.238Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003442","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO7VDFMY7","transactionStatus":"Completed","transactionType":"10002529","amount":"180.0","currency":"BDT"}
+MessageId
+1f6a6a6a-c6df-56cc-961f-3fe30e5d11ba
+Timestamp
+2019-06-23T18:34:42.702Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003614","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO3VDFWE3","transactionStatus":"Completed","transactionType":"10002529","amount":"164.0","currency":"BDT"}
+MessageId
+00cb233f-426d-51e8-89ea-76b68ab3073c
+Timestamp
+2019-06-23T18:36:14.920Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003711","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO6VDG24K","transactionStatus":"Completed","transactionType":"10002529","amount":"22.0","currency":"BDT"}
+MessageId
+4d2958a0-3bfc-5a5d-81de-0d29f2eb12df
+Timestamp
+2019-06-23T18:37:11.327Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003822","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO3VDG67P","transactionStatus":"Completed","transactionType":"10002529","amount":"166.0","currency":"BDT"}
+MessageId
+70ee2563-7a2f-59c7-be9f-70eab371dca8
+Timestamp
+2019-06-23T18:38:22.568Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624003924","debitMSISDN":"01619440400","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO2VDG8N6","transactionStatus":"Completed","transactionType":"10002529","amount":"311.0","currency":"BDT"}
+MessageId
+e03329ff-4d45-5079-ad9d-7c7684d8c4ac
+Timestamp
+2019-06-23T18:39:25.085Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190624161134","debitMSISDN":"01713229383","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6FO8VK3G9Y","transactionStatus":"Completed","transactionReference":"6585","transactionType":"10002487","amount":"500.0","currency":"BDT"}
+MessageId
+60807421-9f05-532e-aafa-21ab3b1219f4
+Timestamp
+2019-06-24T10:11:35.195Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+

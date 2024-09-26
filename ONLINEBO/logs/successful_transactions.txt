@@ -1,0 +1,61 @@
+status: VALID
+tran_date: 2020-04-30 02:13:38
+tran_id: A216F27BA0717D3E
+val_id: 200430214071eiz8xdXjjvXtx1
+amount: 550.00
+store_amount: 536.25
+currency: BDT
+bank_tran_id: 20043021407rw7WWmtjKRzodm7
+card_type: DBBLMOBILEB-Dbbl Mobile Banking
+card_issuer: DBBL Mobile Banking
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 550.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO10217
+risk_title: Safe
+risk_level: 0
+status: VALID
+tran_date: 2020-04-30 02:15:09
+tran_id: EA11F7405C701C79
+val_id: 20043021545FlJoK47xQrKFXB9
+amount: 550.00
+store_amount: 536.25
+currency: BDT
+bank_tran_id: 20043021545Y2hiCdg8hxOUjAe
+card_type: VISA-Dutch Bangla
+card_no: 455445XXXXXX4326
+card_issuer: STANDARD CHARTERED BANK
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 550.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO10217
+risk_title: Safe
+risk_level: 0
+status: VALID
+tran_date: 2020-04-30 02:19:53
+tran_id: BE618AAA8167BCA6
+val_id: 20043022009102RxM4iHJF93pu
+amount: 550.00
+store_amount: 536.25
+currency: BDT
+bank_tran_id: 200430220090dgqNsGaMPJVJEJ
+card_type: ABBANKIB-AB Bank
+card_issuer: AB Bank Limited
+card_brand: IB
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 550.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO10217
+risk_title: Safe
+risk_level: 0

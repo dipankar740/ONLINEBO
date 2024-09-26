@@ -1,0 +1,517 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "Account Holder";
+    Layout = "~/Views/Shared/_LayoutAgent.cshtml";
+    
+    var accSelect = (IEnumerable<OnlineBODetailModel>)ViewData["AccHolderSelect"];
+}
+
+
+<style>
+    #abc {
+        float: left;
+        position: relative;
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        if ($("#fdob").val() == "01/01/1900 00:00:00")
+            $("#fdob").val("");
+        if ($("#jdob").val() == "01/01/1900 00:00:00")
+            $("#jdob").val("");
+
+        $("#JointHolder").hide();
+        $("#DirectorShareList").hide();
+
+        $("#Individual").click(function () {
+            $("#JointHolder").hide();
+        });
+        $("#Joint").click(function () {
+            $("#JointHolder").show();
+        });
+        $("#IsDirYes").click(function () {
+            $("#DirectorShareList").show();
+        });
+        $("#IsDirNo").click(function () {
+            $("#DirectorShareList").hide();
+        });
+
+        $("#ftitle").change(function () {
+            $("#ftitleH").val($("#ftitle").val());
+        });
+
+        $("#jtitle").change(function () {
+            $("#jtitleH").val($("#jtitle").val());
+        });
+
+        @foreach(var item in accSelect)
+        {
+            if (item.ToC == "Joint")
+            {
+                <text>
+                    $("#JointHolder").show(); 
+                </text>
+            }
+            if (item.IsDirector == "Yes")
+            {
+                <text>
+                 $("#DirectorShareList").show();
+                </text>
+            }
+        }
+
+    });
+</script>
+
+
+    @using (Html.BeginForm())
+    {
+
+    foreach(var item in accSelect)
+    {
+        var agree=false;
+        var agree1 = false;
+        if (item.ToC == "Individual" || item.ToC == null || item.ToC=="") { agree = true; }
+        if (item.ToC == "Joint") { agree1 = true; }
+
+        var sex = false;
+        var sex1 = false;
+        if (item.fSex == "Male" || item.fSex == null || item.fSex == "") { sex = true; }
+        if (item.fSex == "Female") { sex1 = true; }
+
+
+        var IsDirectorYes = false;
+        var IsDirectorNo = false;
+        if (item.IsDirector == "Yes" ) { IsDirectorYes = true; }
+        if (item.IsDirector == "No" || item.IsDirector == null || item.IsDirector == "") { IsDirectorNo = true; }
+
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+
+<div class="jumbotron" style="background-color:white;margin:0;">
+
+
+        <div class="row">
+            <div class="col-sm-4" style="margin-top:1%;">
+                @* Show Message *@
+                <div class="row" style="padding-top:10px;color:red;">
+
+                    <div class="col-sm-12">
+                        @ViewBag.MessageAcc2
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px;color:green;">
+                    <div class="col-sm-12">
+                        @ViewBag.MessageAcc1
+                    </div>
+                </div>
+                @* End Show Message *@
+            </div>
+            <div class="col-sm-4" style="margin-top:1%;">
+            </div>
+            <div class="col-sm-4" style="margin-top:1%;">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Type of Client</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        @if (agree == true)
+                        {
+                            @Html.Label("Individual", new { @style = "font-weight: normal;" })
+                            @Html.RadioButtonFor(m => m.ToC, "Individual", new { @Checked = true, name = "optradioType", id = "Individual" })
+                            @Html.Label("Joint", new { @style = "font-weight: normal;" })
+                            @Html.RadioButtonFor(m => m.ToC, "Joint", new { name = "optradioType", id = "Joint" })
+
+
+                        }
+                        @if (agree1 == true)
+                        {
+                            @Html.Label("Individual", new { @style = "font-weight: normal;" })
+                            @Html.RadioButtonFor(m => m.ToC, "Individual", new { name = "optradioType", id = "Individual" })
+                            @Html.Label("Joint", new { @style = "font-weight: normal;" })
+                            @Html.RadioButtonFor(m => m.ToC, "Joint", new { @Checked = true, name = "optradioType", id = "Joint" })
+
+                            <script>
+                                $("#JointHolder").show();
+</script>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*// First account Holder Panel*@
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">First Applicant</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row ">
+                    <div class="col-sm-3 invisible" id="abc" data-toggle="tooltip">
+                        @if (item.fTitle1 == "")
+                        {
+                            @Html.DropDownListFor(m => m.fTitle, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Title", new { @class = "dropdown-list list-group-item", placeholder = "Residency", id = "ftitle" })
+                        }
+                        @if(item.fTitle1!="")
+                        {
+                           @Html.DropDownListFor(m => m.fTitle, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), item.fTitle1, new { @class = "dropdown-list list-group-item", placeholder = "Residency", Value = @item.fTitle, id = "ftitle" })
+                        }
+                        
+                        @Html.HiddenFor(m => m.fTitle1, new { @class = "form-control", Value = " ",id="ftitleH" })
+
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fFirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.fFirstName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fFirstName, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fLastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.fLastName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fLastName, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-3 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fOccupation, new { @class = "form-control text-label", @title = "Occupation", @placeholder = "Occupation", Value = @item.fOccupation, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fOccupation, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+
+                        @Html.TextBoxFor(model => model.fDoB, new { @class = "form-control datepicker", placeholder = " Date of Birth (mm / dd / yyyy)", Value = @item.fDoB, id = "fdob", required = "required" })
+                        @Html.ValidationMessageFor(model => model.fDoB)
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fFName, new { @class = "form-control text-label", @title = "Father's/Husband Name", @placeholder = "Father's/Husband Name", Value = @item.fFName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fFName, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-6 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fMName, new { @class = "form-control text-label", @title = "Mother's Name", @placeholder = "Mother's Name", Value = @item.fMName, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fMName, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fAddress, new { @class = "form-control text-label", @title = "Contact Address", @placeholder = "Contact Address", Value = @item.fAddress, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fAddress, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fCity, new { @class = "form-control text-label", @title = "City", @placeholder = "City", Value = @item.fCity, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fCity, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fPostCode, new { @class = "form-control text-label", @title = "Post Code", @placeholder = "Post Code", Value = @item.fPostCode, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fPostCode, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fDivision, new { @class = "form-control text-label", @title = "Division", @placeholder = "Division", Value = @item.fDivision, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fDivision, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fCountry, new { @class = "form-control text-label", @title = "Country", @placeholder = "Country", Value = @item.fCountry, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fCountry, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fMobile, new { @class = "form-control text-label", @title = "Mobile", @placeholder = "Mobile", Value = @item.fMobile, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fMobile, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fTel, new { @class = "form-control text-label", @title = "Tel", @placeholder = "Tel", Value = @item.fTel })
+                        @Html.ValidationMessageFor(m => m.fTel, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fFax, new { @class = "form-control text-label", @title = "Fax", @placeholder = "Fax", Value = @item.fFax })
+                        @Html.ValidationMessageFor(m => m.fFax, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fEmail, new { @class = "form-control text-label", @title = "E-mail", @placeholder = "E-mail", Value = @item.fEmail })
+                        @Html.ValidationMessageFor(m => m.fEmail, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-5 " id="abc" data-toggle="tooltip">
+                        <div class="alert alert-info">
+                                Other Information
+                        </div>
+                    </div>
+                    <div class="col-sm-3 input-group" id="abc" data-toggle="tooltip">
+                    </div>
+                    <div class="col-sm-3 input-group" id="abc" data-toggle="tooltip">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fNationality, new { @class = "form-control text-label", @title = "Nationality", @placeholder = "Nationality", Value = @item.fNationality })
+                        @Html.ValidationMessageFor(m => m.fNationality, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fNID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.fNID, required = "required" })
+                        @Html.ValidationMessageFor(m => m.fNID, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fTIN, new { @class = "form-control text-label", @title = "TIN", @placeholder = "TIN", Value = @item.fTIN })
+                        @Html.ValidationMessageFor(m => m.fTIN, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4" style="margin-top:1%;">
+                        <div class="panel panel-success">
+
+                            <div class="panel-body">
+                                @if(sex==true)
+                                {
+                                     @Html.Label("Male", new { @style = "font-weight: normal;" })
+                                     @Html.RadioButtonFor(m => m.fSex, "Male", new { @Checked = true, name = "optradioGen" })
+                                     @Html.Label("Female", new { @style = "font-weight: normal;" })
+                                     @Html.RadioButtonFor(m => m.fSex, "Female", new { name = "optradioGen" })
+                                }
+                                @if (sex1 == true)
+                                {
+                                    @Html.Label("Male", new { @style = "font-weight: normal;" })
+                                    @Html.RadioButtonFor(m => m.fSex, "Male", new {  name = "optradioGen" })
+                                    @Html.Label("Female", new { @style = "font-weight: normal;" })
+                                    @Html.RadioButtonFor(m => m.fSex, "Female", new { @Checked = true, name = "optradioGen" })
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4" style="margin-top:1%;">
+                        <div class="panel panel-success">
+
+                            <div class="panel-body">
+                                Resident: @Html.RadioButtonFor(m => m.fResidency, "Resident", new { @checked = "checked", name = "optradioRes" })
+                                @*NonResidant: @Html.RadioButtonFor(m => m.fResidency, "Nonresident", new { name = "optradioRes" })*@
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" style="margin-top:1%;">
+
+                        @Html.HiddenFor(m => m.DesireBranch, new { @class = "form-control", Value = @item.DesireBranch })
+                        @*@Html.DropDownListFor(m => m.DesireBranch, ViewBag.BRANCHES as IEnumerable<SelectListItem>, "Select Desired Branch", new { @class = "form-control" })*@
+
+                        @*@Html.DropDownListFor(m => m.DesireBranch, new SelectList(ViewBag.Branch, "BRANCHNAME", "BRANCHNAME"), "Select Desired Branch", new { @class = "form-control" })*@
+                        @*@Html.DropDownListFor(m => m.DesireBranch, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Desired Branch", new { @class = "form-control", placeholder = "Residency" })*@
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-9 " id="abc" data-toggle="tooltip">
+                        <div class="alert alert-info">
+                            Whether the applicant is an officer or Director or Authorized Representative of any Stock Exchange/Listed Company/Brokerage Firm
+                        </div>
+                    </div>
+                    <div class="col-sm-3 input-group" id="abc" data-toggle="tooltip">
+                        <div class="alert alert-warning">
+
+
+                            @if (IsDirectorYes == true)
+                            {
+                                @Html.Label("Yes", new { @style = "font-weight: normal;" })
+                                @Html.RadioButtonFor(m => m.IsDirector, "Yes", new { Checked = true,name = "opDirector", id = "IsDirYes" })
+                                @Html.Label("No", new { @style = "font-weight: normal;" })
+                                @Html.RadioButtonFor(m => m.IsDirector, "No", new { name = "opDirector", id = "IsDirNo" })
+                                
+                               
+                            }
+                            @if (IsDirectorNo == true)
+                            {
+                                @Html.Label("Yes", new { @style = "font-weight: normal;" })
+                                @Html.RadioButtonFor(m => m.IsDirector, "Yes", new { name = "opDirector", id="IsDirYes" })
+                                @Html.Label("No", new { @style = "font-weight: normal;" })
+                                @Html.RadioButtonFor(m => m.IsDirector, "No", new {Checked = true, name = "opDirector", id = "IsDirNo" })
+                            }
+
+                        </div>
+                    </div>
+                    <div id="DirectorShareList">
+                        <div class="alert alert-warning">
+
+                            @Html.Label("If yes Name of The Stock Exchange/Listed Company/Brokerage Firm:")
+                            @Html.TextBoxFor(model => model.DirectorShare, new { @class = "form-control text-label", @title = "Director Share", @placeholder = "Director Share", Value = @item.DirectorShare })
+                            @Html.ValidationMessageFor(m => m.DirectorShare, "", new { @class = "error" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        @*//Joint Applicant  Joint Applicant(2nd Account Holder)
+
+        // 2nd account Holder Panel*@
+        <div id="JointHolder">
+
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Joint Applicant(2nd Account Holder)</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row ">
+                        <div class="col-sm-3 invisible" id="abc" data-toggle="tooltip">
+                            
+                            @if (item.jTitle1 == "")
+                            {
+                                @Html.DropDownListFor(m => m.jTitle, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Title", new { @class = "form-control", id = "jtitle" })
+                            }
+                            @if (item.jTitle1 != "")
+                            {
+                                @Html.DropDownListFor(m => m.jTitle, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), item.jTitle, new { @class = "form-control", id = "jtitle" })
+                            }
+                            
+                            @Html.HiddenFor(m => m.jTitle1, new { @class = "form-control", Value = " ", id = "jtitleH" })
+                            
+                        </div>
+                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jFastName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.jFastName })
+                            @Html.ValidationMessageFor(m => m.jFastName, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jLastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.jLastName })
+                            @Html.ValidationMessageFor(m => m.jLastName, "", new { @class = "error" })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-3 " id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jOccupation, new { @class = "form-control text-label", @title = "Occupation", @placeholder = "Occupation", Value = @item.jOccupation })
+                            @Html.ValidationMessageFor(m => m.jOccupation, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jDoB, new { @class = "form-control datepicker", placeholder = "Date of Birth (mm / dd / yyyy)", Value = @item.jDoB,id="jdob" })
+                            @Html.ValidationMessageFor(model => model.jDoB)
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jFName, new { @class = "form-control text-label", @title = "Father's/Husband Name", @placeholder = "Father's/Husband Name", Value = @item.jFName })
+                            @Html.ValidationMessageFor(m => m.jFName, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jMName, new { @class = "form-control text-label", @title = "Mother's Name", @placeholder = "Mother's Name", Value = @item.jMName })
+                            @Html.ValidationMessageFor(m => m.jMName, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jNID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.jNID })
+                            @Html.ValidationMessageFor(m => m.jNID, "", new { @class = "error" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jAddress, new { @class = "form-control text-label", @title = "Contact Address", @placeholder = "Contact Address", Value = @item.jAddress })
+                            @Html.ValidationMessageFor(m => m.jAddress, "", new { @class = "error" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jCity, new { @class = "form-control text-label", @title = "City", @placeholder = "City", Value = @item.jCity })
+                            @Html.ValidationMessageFor(m => m.jCity, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jPostCode, new { @class = "form-control text-label", @title = "Post Code", @placeholder = "Post Code", Value = @item.jPostCode })
+                            @Html.ValidationMessageFor(m => m.jPostCode, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jDivision, new { @class = "form-control text-label", @title = "Division", @placeholder = "Division", Value = @item.jDivision })
+                            @Html.ValidationMessageFor(m => m.jDivision, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jCountry, new { @class = "form-control text-label", @title = "Country", @placeholder = "Country", Value = @item.jCountry })
+                            @Html.ValidationMessageFor(m => m.jCountry, "", new { @class = "error" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jMobile, new { @class = "form-control text-label", @title = "Mobile", @placeholder = "Mobile", Value = @item.jMobile })
+                            @Html.ValidationMessageFor(m => m.jMobile, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jTel, new { @class = "form-control text-label", @title = "Tel", @placeholder = "Tel", Value = @item.jTel })
+                            @Html.ValidationMessageFor(m => m.jTel, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jFax, new { @class = "form-control text-label", @title = "Fax", @placeholder = "Fax", Value = @item.jFax })
+                            @Html.ValidationMessageFor(m => m.jFax, "", new { @class = "error" })
+                        </div>
+                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                            @Html.TextBoxFor(model => model.jEmail, new { @class = "form-control text-label", @title = "E-mail", @placeholder = "E-mail", Value = @item.jEmail })
+                            @Html.ValidationMessageFor(m => m.jEmail, "", new { @class = "error" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-danger">
+            <div class="panel-body">
+                <div style="float:right;">
+                    <input type="submit" value="Save and Continue" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+</div>
+        }
+}
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

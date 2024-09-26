@@ -1,0 +1,115 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.BankInfoModel
+@{
+    ViewBag.Title = "Bank Info Edit";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    
+    var bankinfoEdit = (IEnumerable<BankInfoModel>)ViewData["bankinfo1"];
+    
+}
+
+
+<div class="jumbotron" style="background-color:white;margin:0;">
+@foreach (var item in bankinfoEdit)
+{
+using (Html.BeginForm())
+{
+        @*@Html.AntiForgeryToken()*@
+
+        @Html.ValidationSummary(true)
+
+
+        @*Get Bank District*@
+
+
+
+        <div class="panel panel-primary" style="border-color: #8a6d3b;">
+            <div class="panel-heading" style="background-color: #8a6d3b; border-color: #8a6d3b; ">
+                <h3 class="panel-title">Bank Information</h3>
+            </div> 
+            <div class="panel-body">
+                @* Show Message *@
+                <div class="row" style="padding-top:10px;color:red;">
+
+                </div>
+                <div class="row" style="padding-top:10px;color:green;">
+                    <div class="col-sm-12">
+                        @*@if (Session["MessageAcc1"] != null)
+                        {
+                            @Session["MessageAcc1"].ToString();
+                        }*@
+                        @if (ViewBag.MessageBank != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Error!</strong> @ViewBag.MessageBank
+                            </div>
+
+                        }
+                        @if (Session["MessageAcc1"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Success!</strong> @Session["MessageAcc1"]
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                @* End Show Message *@
+
+
+
+                <div class="row ">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.TextBoxFor(model => model.BANKNAME1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Bank Name", @disabled = "disabled", id = "bankname", Value = item.BANKNAME })
+                        @*@Html.DropDownListFor(model => model.BANKNAME, new SelectList(Model.banklist, "BANKNAME", "BANKNAME"), "Select Your Bank", new { id = "bankNameList", @class = "form-control" })*@
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.TextBoxFor(model => model.BANKDISTRICT1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Bank District Name", @disabled = "disabled", id = "district", Value = item.BANKDISTRICT })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.TextBoxFor(model => model.BANKBRANCH1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Bank Branch Name", @disabled = "disabled", id = "branch", Value = item.BANKBRANCH })
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.TextBoxFor(model => model.BANKROUTING1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Routing Number", @disabled = "disabled", id = "routing", Value = item.BANKROUTING })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">  
+                        @Html.TextBoxFor(model => model.BANKAC1, new { @maxlength = "13", @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Your Bank A/C Number", id = "ac", Value = item.BANKAC })
+                        ** Bank AC must be 13 digites
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+
+                    </div>
+                </div>
+            </div>
+    </div>
+            
+            
+        <div class="panel panel-danger" style="border-color: #8a6d3b;">
+            <div class="panel-body">
+                <div style="float:right;">
+                    @*@Html.ActionLink("Edit", "BankInfo", "Client", new {id=1 }, new { @class = "btn btn-primary" }) || @Html.ActionLink("Continue", "AuthorizeInfo", "Client", null, new { @class = "btn btn-primary" })*@
+                    @Html.ActionLink("Edit", "BankInfo", "Client", new { id = 1 }, new { @class = "btn btn-success" }) || @Html.ActionLink("Continue", "AuthorizeInfo", "Client", null, new { @class = "btn btn-info" })
+                </div>
+            </div>
+        </div>
+    
+
+    }
+}
+    
+</div>
+    
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+

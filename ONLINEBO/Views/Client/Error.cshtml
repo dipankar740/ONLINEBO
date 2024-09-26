@@ -1,0 +1,23 @@
+@{
+    ViewBag.Title = "Error_SSL";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+@model Dictionary<string, string>
+
+
+<article class="message is-danger">
+    <div class="message-header">
+        <p>Transaction successful but the order is not valid! <a href="/">Return to home</a>.</p>
+    </div>
+    <div class="message-body">
+        @foreach (var prop in Model)
+        {
+            using (StreamWriter writer = new StreamWriter(Server.MapPath("/logs/SSL_transactions.txt"), true))
+            {
+                writer.WriteLine(prop.Key + ": " + prop.Value);
+            }
+            <code>@prop.Key: @prop.Value</code>
+            <br>
+        }
+    </div>
+</article>

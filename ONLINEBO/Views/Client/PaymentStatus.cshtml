@@ -1,0 +1,61 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "PaymentStatus";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+
+    //var pay_id = (IEnumerable<OnlineBODetailModel>)ViewData["pay_id"];
+}
+
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+@*<h2 >Payment Status</h2>*@
+
+
+<div class="panel panel-primary" style=" border-color: #8a6d3b;">
+    <div class="panel-heading" style="background-color: #8a6d3b; border-color: #8a6d3b;">
+        <h3 class="panel-title">Payment Status</h3>
+    </div>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <th>Payment ID</th>
+                <th>Amount</th>
+                <th>Transaction ID</th>
+                <th>Pay Date</th>
+                <th>Status</th>
+                <th>Approved</th>
+            </tr>
+            <tr>
+                <td>@ViewData["payment_id"]</td>
+                <td>@ViewData["amount"]</td>
+                <td>@ViewData["trxID"]</td>
+                <td>@ViewData["create_date"]</td>
+                <td>@ViewData["status"]</td>
+                <td>@ViewData["isApproved"]</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+

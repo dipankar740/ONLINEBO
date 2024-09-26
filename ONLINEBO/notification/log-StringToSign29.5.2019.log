@@ -1,0 +1,33 @@
+Message
+{"dateTime":"20190529100220","debitMSISDN":"01829088086","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6ET8LYINZ2","transactionStatus":"Completed","transactionType":"10002529","amount":"25000.0","currency":"BDT"}
+MessageId
+68a77026-5e94-5c6b-9ed2-254e5818b53e
+Timestamp
+2019-05-29T04:02:20.877Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190529133838","debitMSISDN":"01717710145","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6ET8M24FKA","transactionStatus":"Completed","transactionReference":"72809","transactionType":"10002487","amount":"1000.0","currency":"BDT"}
+MessageId
+54085040-ae31-5903-b9cf-0528970f5076
+Timestamp
+2019-05-29T07:38:38.692Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190529201255","debitMSISDN":"01671850655","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6ET1M8IV2Z","transactionStatus":"Completed","transactionType":"10002529","amount":"110.0","currency":"BDT"}
+MessageId
+df959763-f886-5879-83ac-c20b6d219882
+Timestamp
+2019-05-29T14:12:55.813Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+

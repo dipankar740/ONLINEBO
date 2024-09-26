@@ -1,0 +1,21 @@
+Message
+{
+       "dateTime":"20180419122246",
+       "debitMSISDN":"8801700000001",
+       "creditOrganizationName":"Org 01",
+       "creditShortCode":"ORG001",
+       "trxID":"4J420ANOXC",
+       "transactionStatus":"Completed",
+       "transactionType":"1003",
+       "amount":"100",
+       "currency":"BDT"
+       }
+MessageId
+dde52577-f81d-5d79-96b9-71a213381e09
+Timestamp
+2019-02-07T08:14:29.430Z
+TopicArn
+arn:aws:sns:ap-southeast-1:354285753755:royel_capital
+Type
+Notification
+

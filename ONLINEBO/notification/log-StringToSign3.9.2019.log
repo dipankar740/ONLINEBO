@@ -1,0 +1,55 @@
+Message
+{"dateTime":"20190903120954","debitMSISDN":"01712063180","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6I38PO1T2W","transactionStatus":"Completed","transactionReference":"EB3099","transactionType":"10002529","amount":"1500.0","currency":"BDT"}
+MessageId
+645dbe6b-79d8-5bc3-874e-eb837c2a126e
+Timestamp
+2019-09-03T06:09:54.365Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190903125716","debitMSISDN":"01712063180","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6I31POTJXV","transactionStatus":"Completed","transactionReference":"EB3099","transactionType":"10002529","amount":"200.0","currency":"BDT"}
+MessageId
+7c2e0657-e8f9-5b3a-a992-53bff9f4098c
+Timestamp
+2019-09-03T06:57:17.336Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190903131934","debitMSISDN":"01822833503","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6I37PP5F11","transactionStatus":"Completed","transactionReference":"35102","transactionType":"10002487","amount":"5500.0","currency":"BDT"}
+MessageId
+33546e98-f157-5f7e-84c3-3b70e710400c
+Timestamp
+2019-09-03T07:19:35.207Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190903132950","debitMSISDN":"01822833503","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6I37PPACRD","transactionStatus":"Completed","transactionReference":"35103","transactionType":"10002487","amount":"5500.0","currency":"BDT"}
+MessageId
+d95ee188-b8a4-5eaf-b1a0-b460a00b8a7a
+Timestamp
+2019-09-03T07:29:51.277Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+
+Message
+{"dateTime":"20190903160402","debitMSISDN":"01712063180","creditOrganizationName":"ROYAL CAPITAL LTD-RM11539","creditShortCode":"01977605080","trxID":"6I34PR5KRA","transactionStatus":"Completed","transactionReference":"EB3099","transactionType":"10002529","amount":"200.0","currency":"BDT"}
+MessageId
+01663ff8-9e0a-5ce9-9cfd-6a10a2d9979d
+Timestamp
+2019-09-03T10:04:03.111Z
+TopicArn
+arn:aws:sns:ap-southeast-1:797962984373:bpt_01977605080
+Type
+Notification
+

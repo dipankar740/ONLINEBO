@@ -1,0 +1,97 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.UserModel
+
+@{
+    ViewBag.Title = "ViewUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    var user = (IEnumerable<UserModel>)ViewData["UserDetails"];
+}
+
+@foreach (var item in user)
+{ 
+<h2>@item.USERID - Details</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BRANCHCODE)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHCODE, new { Value=item.BRANCHCODE})
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BRANCHNAME)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHNAME, new { Value = item.BRANCHNAME })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USERID)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHCODE, new { Value = item.USERID })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USERTYPE)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHCODE, new { Value = item.USERTYPE })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UESRNAME)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHCODE, new { Value = item.UESRNAME })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BRANCH_PREFIX)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHCODE, new { Value = item.BRANCH_PREFIX })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGENT_PREFIX)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHCODE, new { Value = item.AGENT_PREFIX })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.PasswordFor(model => model.BRANCHCODE, new { Value = item.password })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOCK)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.BRANCHCODE, new { Value = item.LOCK })
+        </dd>
+
+    </dl>
+</div>
+}
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+    @Html.ActionLink("Back to List", "UserList","Admin")
+</p>

@@ -1,0 +1,107 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "CDBL Charge Report";
+    Layout = "~/Views/Shared/_LayoutBranch.cshtml";
+
+    var incom = (IEnumerable<OnlineBODetailModel>)ViewData["bosale"];
+    var sl = 0;
+    decimal sum = 0;
+}
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker({
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            changeYear: true,  
+            yearRange: "-100:+0"  
+        }) //Initialise any date pickers
+    });
+</script>
+
+@using (Html.BeginForm())
+{
+    <div class="panel panel-primary" style="padding-top: 1%; border-color: #86322c;">
+        <div class="panel-heading" style="background-color: #86322c; border-color: #86322c; ">
+            <h3 class="panel-title">CDBL Charge Report</h3>
+        </div>
+
+
+        <div class="panel panel-danger">
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.fDoB, new { @class = "form-control datepicker", placeholder = " Date From (dd / mm / yyyy)" })
+                    </div>
+                    <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.jDoB, new { @class = "form-control datepicker", placeholder = " Date To (mm / dd / yyyy)" })
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="submit" value="Search" class="btn btn-info" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <hr />
+        <div class="panel-body">
+
+            <div class="row ">
+
+                <div class="col-md-12" style="padding-top:1%;">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tracking no</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Print</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in incom)
+                            {
+                                sl++;
+                                sum += Convert.ToDecimal(@item.amount);
+                                <tr>
+                                    <th scope="row">@sl</th>
+                                    <td>@item.TRACKINGNO</td>
+                                    <td>@item.aFirstName</td>
+                                    <td>@item.amount</td>
+                                    <td>@string.Format("{0:dd-MMM-yyyy}", Convert.ToDateTime(item.DATE))</td>
+                                    <td>@Html.ActionLink("Print", "PrintMR", new { id =(@Session["Trackingno"]= @item.TRACKINGNO) }, new { target = "_blank" }) || @Html.ActionLink("E-Mail", "EmailMR", new { id = (@Session["Trackingno"] = @item.TRACKINGNO) }, new { target = "_blank" })</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tbody>
+
+
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <td><b>Total :</b></td>
+                                <td>@sum</td>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

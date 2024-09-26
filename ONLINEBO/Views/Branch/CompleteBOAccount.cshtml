@@ -1,0 +1,58 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "IncompleteBOAccount";
+    Layout = "~/Views/Shared/_LayoutBranch.cshtml";
+
+    var incom = (IEnumerable<OnlineBODetailModel>)ViewData["completeList"];
+    var sl = 0;
+}
+
+@*@using (Html.BeginForm())
+    {*@
+<div class="panel panel-primary" style="padding-top: 1%; border-color: #86322c;">
+    <div class="panel-heading" style="background-color: #86322c; border-color: #86322c; ">
+        <h3 class="panel-title">Complete BO Account</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="row ">
+
+            <div class="col-md-12" style="padding-top:1%;">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tracking no</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in incom)
+                        {
+                            sl++;
+                            <tr>
+                                <th scope="row">@sl</th>
+                                <td>@item.TRACKINGNO</td>
+                                <td>@item.fFirstName @item.fLastName</td>
+                                <td>@item.fMobile</td>
+                                <td>@Html.ActionLink("Download", "DownloadBO", "Branch", new { id = item.TRACKINGNO.ToString() }, new { target = "_blank" })</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@*//}*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

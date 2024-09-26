@@ -1,0 +1,761 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.BankInfoModel
+@{
+    ViewBag.Title = "Upload Documents";
+    Layout = "~/Views/Shared/_LayoutBranch.cshtml";
+
+    var accSelect = (IEnumerable<OnlineBODetailModel>)ViewData["printmr"];
+    var accImg = (IEnumerable<OnlineBODetailModel>)ViewData["image"];
+}
+
+<script src="~/AngularJS/imageLoader.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        //$('#imgDef').val('/images/noimage.jpg');
+
+        $('#fAcHolderC').prop('checked', true);
+        $("#fAcHolder").show();
+        $("#jAcHolder").hide();
+        $("#aAcHolder").hide();
+        $("#n1AcHolder").hide();
+        $("#g1AcHolder").hide();
+        $("#n2AcHolder").hide();
+        $("#g2AcHolder").hide();
+
+        $('#fAcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#fAcHolder").show();
+            } else {
+                $("#fAcHolder").hide();
+            }
+        });
+
+        $('#jAcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#jAcHolder").show();
+            } else {
+                $("#jAcHolder").hide();
+            }
+        });
+
+        $('#aAcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#aAcHolder").show();
+            } else {
+                $("#aAcHolder").hide();
+            }
+        });
+
+        $('#n1AcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#n1AcHolder").show();
+            } else {
+                $("#n1AcHolder").hide();
+            }
+        });
+
+        $('#g1AcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#g1AcHolder").show();
+            } else {
+                $("#g1AcHolder").hide();
+            }
+        });
+
+        $('#n2AcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#n2AcHolder").show();
+            } else {
+                $("#n2AcHolder").hide();
+            }
+        });
+
+        $('#g2AcHolderC').click(function (event) {
+            if (this.checked) {
+                $("#g2AcHolder").show();
+            } else {
+                $("#g2AcHolder").hide();
+            }
+        });
+
+
+        @foreach(var item in accSelect)
+        {
+                if(item.fFirstName!="")
+                {
+                    <text>
+                        $('#fAcHolderC').prop('checked', true);
+                        $("#fAcHolder").show();
+                    </text>
+                }
+                if(item.jFastName!="")
+                {
+                    <text>
+                        $('#jAcHolderC').prop('checked', true);
+                        $("#jAcHolder").show();
+                    </text>
+                }
+                if(item.aFirstName!="")
+                {
+                    <text>
+                        $('#aAcHolderC').prop('checked', true);
+                        $("#aAcHolder").show();
+                    </text>
+                }
+                if(item.n1FirstName!="")
+                {
+                    <text>
+                        $('#n1AcHolderC').prop('checked', true);
+                        $("#n1AcHolder").show();
+                    </text>
+                }
+                if(item.n2FirstName!="")
+                {
+                    <text>
+                        $('#n2AcHolderC').prop('checked', true);
+                        $("#n2AcHolder").show();
+                    </text>
+                }
+                if(item.g1FirstName!="")
+                {
+                    <text>
+                        $('#g1AcHolderC').prop('checked', true);
+                        $("#g1AcHolder").show();
+                    </text>
+                }
+                if(item.g2FirstName!="")
+                {
+                    <text>
+                        $('#g2AcHolderC').prop('checked', true);
+                        $("#g2AcHolder").show();
+                    </text>
+                }
+
+        }
+
+
+    });
+</script>
+
+<div class="jumbotron" style="background-color:white;margin:0;padding:0;">
+
+    @*@using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {*@
+    @*@Html.ValidationSummary(true)*@
+
+    <div class="panel panel-primary" style="border-color: #86322c;">
+        <div class="panel-heading" style="background-color: #86322c; border-color: #86322c;">
+            <h3 class="panel-title">Please Upload Your necessary Documents</h3>
+        </div>
+        <div class="panel-body">
+            @if (Session["MessageNominee"] != null)
+            {
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Success!</strong> @Session["MessageNominee"]
+                </div>
+
+            }
+            <div class="row " id="" style="margin-top:2%;">
+                <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                    <div class="panel panel-danger" style="border-color: #c1dbdb;">
+                        <div class="panel-heading" style="color: #590705; background-color: #c1dbdb; border-color: #c1dbdb;">
+                            <h4 class="panel-title">Select your document type which needed (Must be in Jpg/Jpeg Format and Size Maximum 300kb)</h4>
+                        </div>
+                        <div class="panel-body" id="imgTypeSelectPanel" style="color:red;font-weight:bold;">
+                            @*First A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "fAcHolderC" }) | Joint A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "jAcHolderC" }) | Authorize @Html.CheckBoxFor(m => m.val, new { id = "aAcHolderC" }) | Nominee 1 @Html.CheckBoxFor(m => m.val, new { id = "n1AcHolderC" }) | Nominee 1 Guardian @Html.CheckBoxFor(m => m.val, new { id = "g1AcHolderC" }) | Nominee 2 @Html.CheckBoxFor(m => m.val, new { id = "n2AcHolderC" }) | Nominee 2 Guardian @Html.CheckBoxFor(m => m.val, new { id = "g2AcHolderC" })*@
+                            @*First A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "fAcHolderC" }) | Joint A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "jAcHolderC" })*@
+                            @*First A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "fAcHolderC" }) | Joint A/C Holder @Html.CheckBoxFor(m => m.val, new { id = "jAcHolderC" })*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            @foreach (var item in accImg)
+            {
+                <div class="row " id="fAcHolder">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="fImage" src="data:image/jpg;base64,@Convert.ToBase64String(item.fImage, 0, item.fImage.Length)" alt=" royal capital" />
+                            <div class="caption">
+                                <h4>First A/C Holder</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">First A/C Holder Image</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.fImage</p>
+                                    @*@Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "fImageURL(this)" })*@
+                                    @*@Html.TextBox(Model => Model.Filedef, new { type = "file", onchange = "fImageURL(this)" })*@
+                                    <div>
+                                        @*<input id="Button1" type="button" value="Clear" onclick="document.getElementById('fImage').src = '/images/noimage.jpg'" />*@
+                                        @*<button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new {id = "fImage" })'>Save</button>*@
+                                        @*<input type="file" value="c://link1.txt">*@
+                                        @*@Html.TextBoxFor(Model => Model.FileDef, new { type = "file", id="imgDef"})*@
+                                        @*<button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new {id = "fImage" })'>Save</button>*@
+
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="fFontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.fNIDFont, 0, item.fNIDFont.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>First A/C Holder</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.fNIDFont</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "fFontNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('fFontNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new {id = "fNIDFont" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="fBackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.fNIDBack, 0, item.fNIDBack.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>First A/C Holder</h4>
+
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.fNIDBack</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "fBackNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('fBackNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "fNIDBack" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="fSing" src="data:image/jpg;base64,@Convert.ToBase64String(item.fSig, 0, item.fSig.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>First A/C Holder</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">First A/C Holder Signature</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.fSig</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "fSingURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('fSing').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "fSig" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Joint A/C Holder *@
+                <div class="row " id="jAcHolder">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="jImage" src="data:image/jpg;base64,@Convert.ToBase64String(item.jImage, 0, item.jImage.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Joint A/C Holder</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Joint A/C Holder Image</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.jImage</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "jImageURL(this)" })
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('jImage').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "jImage" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="jFontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.jNIDFont, 0, item.jNIDFont.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Joint A/C Holder</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.jNIDFont</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "jFontNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('jFontNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "jNIDFont" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="jBackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.jNIDBack, 0, item.jNIDBack.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Joint A/C Holder</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.jNIDBack</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "jBackNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('jBackNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "jNIDBack" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="jSing" src="data:image/jpg;base64,@Convert.ToBase64String(item.jSig, 0, item.jSig.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Joint A/C Holder</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Joint A/C Holder Signature</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.jSig</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "jSingURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('jSing').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "jSig" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                @* Authorize *@
+                <div class="row " id="aAcHolder">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="aImage" src="data:image/jpg;base64,@Convert.ToBase64String(item.aImage, 0, item.aImage.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Authorize</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Authorize Image</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.aImage</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "aImageURL(this)" })
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('aImage').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "aImage" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="aFontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.aNIDFont, 0, item.aNIDFont.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Authorize</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.aNIDFont</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "aFontNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('aFontNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "aNIDFont" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="aBackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.aNIDBack, 0, item.aNIDBack.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Authorize</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.aNIDBack</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "aBackNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('aBackNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "aNIDBack" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="aSing" src="data:image/jpg;base64,@Convert.ToBase64String(item.aSig, 0, item.aSig.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Authorize</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Authorize Signature</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.aSig</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "aSingURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('aSing').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "aSig" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                @* Nominee 1 *@
+                <div class="row " id="n1AcHolder">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n1Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1Image, 0, item.n1Image.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 1</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Nominee 1 Image</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n1Image</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n1ImageURL(this)" })
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n1Image').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n1Image" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n1FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1NIDFont, 0, item.n1NIDFont.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 1</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n1NIDFont</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n1FontNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n1FontNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n1NIDFont" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n1BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1NIDBack, 0, item.n1NIDBack.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 1</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n1NIDBack</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n1BackNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n1BackNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n1NIDBack" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n1Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.n1Sig, 0, item.n1Sig.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 1</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Nominee 1 Signature</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n1Sig</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n1SingURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n1Sing').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n1Sig" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                @* Guardian 1 *@
+                <div class="row " id="g1AcHolder">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g1Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1Image, 0, item.g1Image.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 1</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Guardian 1 Image</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g1Image</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g1ImageURL(this)" })
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g1Image').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g1Image" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g1FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1NIDFont, 0, item.g1NIDFont.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 1</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g1NIDFont</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g1FontNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g1FontNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g1NIDFont" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g1BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1NIDBack, 0, item.g1NIDBack.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g1NIDBack</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g1BackNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g1BackNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g1NIDBack" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g1Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.g1Sig, 0, item.g1Sig.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 1</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Guardian 1 Signature</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g1Sig</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g1SingURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g1Sing').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g1Sig" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                @* Nominee 2 *@
+                <div class="row " id="n2AcHolder">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n2Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2Image, 0, item.n2Image.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Nominee 2 Image</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n2Image</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n2ImageURL(this)" })
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n2Image').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n2Image" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n2FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2NIDFont, 0, item.n2NIDFont.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n2NIDFont</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n2FontNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n2FontNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n2NIDFont" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n2BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2NIDBack, 0, item.n2NIDBack.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n2NIDBack</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n2BackNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n2BackNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n2NIDBack" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="n2Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.n2Sig, 0, item.n2Sig.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Nominee 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Nominee 2 Signature</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.n2Sig</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "n2SingURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('n2Sing').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "n2Sig" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Guardian 2 *@
+                <div class="row " id="g2AcHolder">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g2Image" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2Image, 0, item.g2Image.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Guardian 2 Image</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g2Image</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g2ImageURL(this)" })
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g2Image').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g2Image" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g2FontNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2NIDFont, 0, item.g2NIDFont.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Font Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g2NIDFont</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g2FontNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g2FontNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g2NIDFont" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g2BackNid" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2NIDBack, 0, item.g2NIDBack.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Back Page of NID/Passport/Driving Licence</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g2NIDBack</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g2BackNidURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g2BackNid').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g2NIDBack" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        <div class="thumbnail">
+                            <img id="g2Sing" src="data:image/jpg;base64,@Convert.ToBase64String(item.g2Sig, 0, item.g2Sig.Length)" alt="Royal Capital" />
+                            <div class="caption">
+                                <h4>Guardian 2</h4>
+                                @using (Html.BeginForm("UploadImages", "Branch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <p style="font-size:12px;color:red;">Guardian 2 Signature</p>
+                                    <p style="font-size:12px;color:green;">@ViewBag.g2Sig</p>
+                                    @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "g2SingURL(this)" })
+                                    @*<img src="@Url.Content(Model.BANKNAME)" alt="Image" />*@
+                                    <div>
+                                        <input id="Button1" type="button" value="Clear" onclick="document.getElementById('g2Sing').src = '/images/noimage.jpg'" />
+                                        <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Branch", new { id = "g2Sig" })'>Save</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+            @*<div class="panel panel-danger">
+            <div class="panel-body">
+                <div style="float:right;">
+                    <input type="submit" value="Save and Continue" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>*@
+
+        </div>
+        <div class="panel panel-danger" style="border-color: #8a6d3b;">
+            <div class="panel-body">
+                <div style="float:right;">
+                    @Html.ActionLink("Complete Payment >>|", "Payment", "Branch", null, new { @class = "btn btn-info" })
+                </div>
+            </div>
+        </div>
+    </div>
+    @*}*@
+
+</div>

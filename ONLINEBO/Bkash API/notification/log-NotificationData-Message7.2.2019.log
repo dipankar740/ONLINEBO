@@ -1,0 +1,11 @@
+{
+       "dateTime":"20180419122246",
+       "debitMSISDN":"8801700000001",
+       "creditOrganizationName":"Org 01",
+       "creditShortCode":"ORG001",
+       "trxID":"4J420ANOXC",
+       "transactionStatus":"Completed",
+       "transactionType":"1003",
+       "amount":"100",
+       "currency":"BDT"
+       }

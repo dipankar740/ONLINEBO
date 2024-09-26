@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model ONLINEBO.Models.UserModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">List of Users Account</h3>
+    </div>
+    <div class="panel-body">
+        
+
+        @{
+            ViewBag.Title = "Create New User";
+            Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+        }
+
+        <h2>User</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BRANCHCODE, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BRANCHCODE)
+                        @Html.ValidationMessageFor(model => model.BRANCHCODE)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BRANCHNAME, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.BRANCHNAME, ViewBag.BRANCHES as IEnumerable<SelectListItem>, "Select Branch", new { @class = "form-control",@style="width:170px;" })
+                        @Html.ValidationMessageFor(model => model.BRANCHNAME)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.USERID, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.USERID)
+                        @Html.ValidationMessageFor(model => model.USERID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.USERTYPE, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.BRANCHNAME, ViewBag.userType as IEnumerable<SelectListItem>, "Select User Type", new { @class = "form-control", @style = "width:170px;" })
+                        @Html.ValidationMessageFor(model => model.USERTYPE)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UESRNAME, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UESRNAME)
+                        @Html.ValidationMessageFor(model => model.UESRNAME)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BRANCH_PREFIX, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BRANCH_PREFIX)
+                        @Html.ValidationMessageFor(model => model.BRANCH_PREFIX)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AGENT_PREFIX, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AGENT_PREFIX)
+                        @Html.ValidationMessageFor(model => model.AGENT_PREFIX)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.password, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.password)
+                        @Html.ValidationMessageFor(model => model.password)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+
+    </div>
+</div>
+

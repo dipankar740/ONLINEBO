@@ -1,0 +1,11 @@
+﻿body {
+}
+
+.panel-prinary-navbar {
+    border-color: #8a6d3b;
+}
+.prinary-navbar > .panel-heading-navbar {
+    color: #fff;
+    background-color: #8a6d3b;
+    border-color: #8a6d3b;
+}

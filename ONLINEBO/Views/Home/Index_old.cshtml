@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model ONLINEBO.Models.HomeModel
+
+<link href="~/Content/style.css" rel="stylesheet">
+
+
+
+<div class="container" style="margin-top:10%;" id="online_bo_body">
+    <div class="row">
+        <div class="col-sm-6" style="margin-top: 4%;">
+            <img src='~/images/logoSmall copy.png' class='img-fluid' alt='Royal Capital' style="height:80%;width:80%;">
+             <h2 style="color:GrayText;font-family:'Cream Peach';">No. 1 Retail Broker in Bangladesh</h2>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            @* "Open your BO account now" Panel *@
+
+            <br />
+            <h3 style="color: red; font-family: 'Times New Roman'; ">Call Us On: 16379 or +8809606016379</h3>
+            <h1 style="color:GrayText;font-family:'Times New Roman'; font-weight:bold;">Open Your BO Account Now</h1>
+
+            <div class="row" style="padding-top:10px;color:red;">
+
+                <div class="col-sm-12">
+                    @ViewBag.Message2
+                </div>
+            </div>
+            <div class="row" style="padding-top:10px;color:green;">
+                <div class="col-sm-12">
+                    @ViewBag.Message1
+                </div>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-inline">
+
+                    @Html.ValidationSummary(true)
+
+                    <div class="row" style="font-family:'Times New Roman';">
+                        <div class="col-sm-6" style="padding-top:10px;">
+                            <div class="">
+                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control text-label", @placeholder = "First Name" })
+                                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "error" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6" style="padding-top:10px;">
+                            <div class="">
+                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control text-label", @placeholder = "Last Name" })
+                                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "error" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="font-family:'Times New Roman';">
+                        <div class="col-sm-6" style="padding-top:10px;">
+                            <div class="">
+                                @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control text-label", @placeholder = "Mobile" })
+                                @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "error" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6" style="padding-top:10px;">
+                            <div class="">
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control text-label ", @placeholder = "Email", @required = "required", @type = "email" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row" style="padding-top:20px;font-family:'Times New Roman';">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="submit" value="Continue To Registration" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <a href="Home/Login"><i>Already registered? Please <b style="color:red;">Sign in</b></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        </div>
+
+
+    </div>
+
+
+
+    <div class="row">
+	
+	  <div class="col-md-6">
+            <img src="~/images/Online_BO_infografics.png"/>
+        </div>
+
+        <div class="col-md-6">
+            <p>
+                <iframe id="online_bo_startup_vdo" width="450" height="300" src="https://www.youtube.com/embed/fgpi8pOLfJM?list=PLEEDrGea50eqZ3tW7fv4R2otsoiYZk1az" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+            </p>
+        </div>
+
+        <div class="col-md-6" style="text-align:center;font-family:'Times New Roman';">
+            <h2>Online BO opening Guide – <a href="https://adda.royalcapitalbd.com/open-bo-account-online-english/" target="_blank">English</a> or <a href="https://adda.royalcapitalbd.com/online-bo-account/" target="_blank"> বাংলা</a></h2>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="container-fluid">
+
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>*@
+</div>
+
+
+
+<div class="row">
+    @*<div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>*@
+</div>

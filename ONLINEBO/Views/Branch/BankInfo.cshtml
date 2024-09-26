@@ -1,0 +1,176 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.BankInfoModel
+@{
+    ViewBag.Title = "BankInfo";
+    Layout = "~/Views/Shared/_LayoutBranch.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        
+        $("#bankNameList").empty();
+
+        $.ajax({
+
+            url: "/Branch/GetBankName",
+            type: 'Post',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify(),
+            success: function (data) {
+                //$("#bankDistrictList").empty();
+
+                $("#bankNameList").append($("<option />").val("Select Your Bank").text("Select Your Bank"));
+                $.each(data, function (value) {
+                    //alert(data[value].BANKDISTRICT);
+                    $("#bankNameList").append($("<option />").val(data[value].BANKNAME).text(data[value].BANKNAME));
+                });
+                //alert("End");
+
+            }
+        });
+
+        $("#bankNameList").change(function () {
+            $("#bankname").val($("#bankNameList").val());
+        });
+
+        $("#bankDistrictList").change(function () {
+            $("#district").val($("#bankDistrictList").val());
+        });
+        $("#bankbranchlist").change(function () {
+            $("#branch").val($("#bankbranchlist").val());
+            
+        });
+
+        //$("#bankroutinglist").change(function () {
+        //    $("#routing").val($("#bankroutinglist").val());
+        //});
+
+        
+
+    });
+</script>
+
+<script src="~/AngularJS/LoadBankInfo.js"></script>
+
+
+<div class="jumbotron" style="background-color:white;margin:0;">
+@using (Html.BeginForm())
+{
+        @*@Html.AntiForgeryToken()*@
+
+        @Html.ValidationSummary(true)
+
+
+        @*Get Bank District*@
+
+
+
+        <div class="panel panel-primary" style="border-color: #86322c;">
+            <div class="panel-heading" style="background-color: #86322c; border-color: #86322c;">
+                <h3 class="panel-title">Bank Information</h3>
+            </div>
+            <div class="panel-body">
+                @* Show Message *@
+                <div class="row" style="padding-top:10px;color:red;">
+
+                </div>
+                <div class="row" style="padding-top:10px;color:green;">
+                    <div class="col-sm-12">
+                        @*@if (Session["MessageBank"] != null)
+                        {
+                            @Session["MessageBank"].ToString();
+                        }*@
+                        @if (ViewBag.MessageBank != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Error!</strong> @ViewBag.MessageBank
+                            </div>
+                            
+                        }
+                        @if (Session["MessageAcc1"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Success!</strong> @Session["MessageAcc1"]
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                @* End Show Message *@
+                <div class="row ">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.DropDownListFor(m => m.BANKNAME, new SelectList(ViewBag.bankname, "BANKNAME", "BANKNAME"), "Select Your Bank", new { id = "bankNameList", @class = "form-control", @required = "required" })
+                        @*@Html.DropDownListFor(model => model.BANKNAME, new SelectList(Model.banklist, "BANKNAME", "BANKNAME"), "Select Your Bank", new { id = "bankNameList", @class = "form-control" })*@
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.DropDownListFor(model => model.BANKDISTRICT, new SelectList(ViewBag.districtName, "BANKDISTRICT", "BANKDISTRICT"), "Select Your Bank District", new { id = "bankDistrictList", @class = "form-control", @required = "required" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.DropDownListFor(model => model.BANKBRANCH, new SelectList(ViewBag.branchName, "BANKBRANCH", "BANKBRANCH"), "Select Your Bank Branch", new { id = "bankbranchlist", @class = "form-control", @required = "required" })
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.DropDownListFor(model => model.BANKROUTING, new SelectList(ViewBag.routingNUmber, "BANKROUTING", "BANKROUTING"), new { id = "bankroutinglist", @class = "form-control", @required = "required" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.TextBoxFor(model => model.BANKAC, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Your Bank A/C Number", id = "ac"})
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    /*
+    
+                <div class="row ">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.TextBoxFor(model => model.BANKNAME1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Bank Name", @disabled = "disabled",id = "bankname" })
+                        @*@Html.DropDownListFor(model => model.BANKNAME, new SelectList(Model.banklist, "BANKNAME", "BANKNAME"), "Select Your Bank", new { id = "bankNameList", @class = "form-control" })*@
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                       @Html.TextBoxFor(model => model.BANKDISTRICT1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Bank District Name", @disabled = "disabled", id = "district" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                       @Html.TextBoxFor(model => model.BANKBRANCH1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Bank Branch Name", @disabled = "disabled", id = "branch" })
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                       @Html.TextBoxFor(model => model.BANKROUTING1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Routing Number", @disabled = "disabled", id = "routing" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+                        @Html.TextBoxFor(model => model.BANKAC1, new { @class = "form-control text-label", @title = "First Name", @required = "required", @placeholder = "Your Bank A/C Number", id = "ac" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip" style="padding-top:1%;">
+
+                    </div>
+                </div>
+    */
+        <div class="panel panel-danger">
+            <div class="panel-body">
+                <div style="float:right;">
+                    @Html.ActionLink("Back", "BankInfoEdit", "Branch", null, new { @class = "btn btn-success" }) || <input type="submit" value="Save and Continue" class="btn btn-info" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+

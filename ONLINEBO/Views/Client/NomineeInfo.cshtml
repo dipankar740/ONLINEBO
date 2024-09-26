@@ -1,0 +1,624 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "NomineeInfo";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+
+    var noSelect = (IEnumerable<OnlineBODetailModel>)ViewData["NomineeSelect"];
+}
+
+
+<style>
+    #abc {
+        float: left;
+        position: relative;
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker({
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+0"  
+        }); //Initialise any date pickers
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        if ($("#a1").val() == "01/01/1900 00:00:00")
+            $("#a1").val("");
+        if ($("#a2").val() == "01/01/1900 00:00:00")
+            $("#a2").val("");
+        if ($("#a3").val() == "01/01/1900 00:00:00")
+            $("#a3").val("");
+        if ($("#a4").val() == "01/01/1900 00:00:00")
+            $("#a4").val("");
+        if ($("#a5").val() == "01/01/1900 00:00:00")
+            $("#a5").val("");
+        if ($("#a6").val() == "01/01/1900 00:00:00")
+            $("#a6").val("");
+        if ($("#a7").val() == "01/01/1900 00:00:00")
+            $("#a7").val("");
+        if ($("#a8").val() == "01/01/1900 00:00:00")
+            $("#a8").val("");
+
+        $("#N1G").hide();
+        $("#N2G").hide();
+        $("#N2").hide();
+        $("#yesN1G").click(function () {
+            $("#N1G").show();
+        });
+        $("#noN1G").click(function () {
+            $("#N1G").hide();
+        });
+        $("#yesN2G").click(function () {
+            $("#N2G").show();
+        });
+        $("#noN2G").click(function () {
+            $("#N2G").hide();
+        });
+        $("#yesN2").click(function () {
+            $("#N2").show();
+        });
+        $("#noN2").click(function () {
+            $("#N2").hide();
+        });
+
+        $("#n1title").change(function () {
+            $("#n1TitleH").val($("#n1title").val());
+        });
+        $("#n2title").change(function () {
+            $("#n2TitleH").val($("#n2title").val());
+        });
+        $("#g1title").change(function () {
+            $("#g1TitleH").val($("#g1title").val());
+        });
+        $("#g2title").change(function () {
+            $("#g2TitleH").val($("#g2title").val());
+        });
+    });
+</script>
+
+
+@foreach (var item in noSelect)
+{
+    @*<div class="jumbotron" style="background-color:white;margin:0;padding:0;">*@
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+        <br />
+        <div class="panel panel-primary" style="border-color: #8a6d3b;">
+            <div class="panel-heading" style="background-color: #8a6d3b; border-color: #8a6d3b;">
+                <h3 class="panel-title">Nominee 1</h3>
+            </div>
+            <div class="panel-body">
+                @* Show Message *@
+                <div class="row" style="padding-top:10px;color:red;">
+
+                    <div class="col-sm-12">
+                        @*@if (ViewBag.MessageAutho1 != null)
+                        {
+                            @ViewBag.MessageAutho1
+                        }*@
+                        @if (Session["MessageAuth"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Success!</strong> @Session["MessageAuth"]
+                            </div>
+
+                        }
+                        @if (ViewBag.MessageNominee2 != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Error!</strong> @ViewBag.MessageNominee2
+                            </div>
+
+                        }
+                    </div>
+                </div>
+                @* End Show Message *@
+                <div class="row ">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+
+                        @if (item.n1Title1 == "")
+                        {
+                            @Html.DropDownListFor(m => m.n1Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Title", new { @class = "form-control", placeholder = "Residency", @id = "n1title" })
+
+                        }
+                        @if (item.n1Title1 != "")
+                        {
+                            @Html.DropDownListFor(m => m.n1Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), @item.n1Title1, new { @class = "form-control", placeholder = "Residency", @id = "n1title" })
+                        }
+                        @Html.HiddenFor(model => model.n1Title1, new { @class = "form-control text-label", @id = "n1TitleH", Value = @item.n1Title1 })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.n1FirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.n1FirstName })
+                        @Html.ValidationMessageFor(m => m.n1FirstName, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.n1LastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.n1LastName })
+                        @Html.ValidationMessageFor(m => m.n1LastName, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-3 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.n1RelWithACHolder, new { @class = "form-control text-label", @title = "Relationship With A/C Holder", @placeholder = "Relationship With A/C Holder", Value = @item.n1RelWithACHolder })
+                        @Html.ValidationMessageFor(m => m.n1RelWithACHolder, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(model => model.n1Percentage, new { @class = "form-control", @title = "Percentage(%)", placeholder = "Percentage(%)", Value = @item.n1Percentage })
+                        @Html.ValidationMessageFor(model => model.n1Percentage)
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.DropDownListFor(m => m.n1IsResident, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Residency))), new { @class = "form-control", placeholder = "Residency" })
+                    </div>
+                    <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1DoB,  new { @class = "form-control",@type="date", @title = "Date Of Birth",
+                       Value = @item.n1DoB.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a1" })
+                        @Html.ValidationMessageFor(m => m.n1DoB)
+                    </div>
+                    <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1NID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.n1NID })
+                        @Html.ValidationMessageFor(m => m.n1NID, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1Address, new { @class = "form-control text-label", @title = "Contact Address", @placeholder = "Contact Address", Value = @item.n1Address })
+                        @Html.ValidationMessageFor(m => m.n1Address, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1City, new { @class = "form-control text-label", @title = "City", @placeholder = "City", Value = @item.n1City })
+                        @Html.ValidationMessageFor(m => m.n1City, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1PostCode, new { @class = "form-control text-label", @title = "Post Code", @placeholder = "Post Code", Value = @item.n1PostCode })
+                        @Html.ValidationMessageFor(m => m.n1PostCode, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1Division, new { @class = "form-control text-label", @title = "Division", @placeholder = "Division", Value = @item.n1Division })
+                        @Html.ValidationMessageFor(m => m.n1Division, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1Country, new { @class = "form-control text-label", @title = "Country", @placeholder = "Country", Value = @item.n1Country })
+                        @Html.ValidationMessageFor(m => m.n1Country, "", new { @class = "error" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1Mobile, new { @class = "form-control text-label", @title = "Mobile", @placeholder = "Mobile", Value = @item.n1Mobile })
+                        @Html.ValidationMessageFor(m => m.n1Mobile, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1Tel, new { @class = "form-control text-label", @title = "Tel", @placeholder = "Tel", Value = @item.n1Tel })
+                        @Html.ValidationMessageFor(m => m.n1Tel, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1Fax, new { @class = "form-control text-label", @title = "Fax", @placeholder = "Fax", Value = @item.n1Fax })
+                        @Html.ValidationMessageFor(m => m.n1Fax, "", new { @class = "error" })
+                    </div>
+                    <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                        @Html.TextBoxFor(m => m.n1Email, new { @class = "form-control text-label", @title = "E-mail", @placeholder = "E-mail", Value = @item.n1Email })
+                        @Html.ValidationMessageFor(m => m.n1Email, "", new { @class = "error" })
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="panel">
+            <div class="radio">
+                Do you want to Add Nominee 1 Guardian (If Nominee is A Minor))? <label><input type="radio" name="optradio2" id="yesN1G">Yes</label>
+                <label><input type="radio" name="optradio2" id="noN1G" checked>No</label>
+            </div>
+        </div>
+
+                        // Nominee 1 Guardian (If Nominee is A Minor)
+                        <div id="N1G">
+
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Nominee 1 Guardian (If Nominee is A Minor)</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row ">
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @if (item.g1Title1 == "")
+                                            {
+                                                @Html.DropDownListFor(m => m.g1Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Title", new { @class = "form-control", placeholder = "Residency", @id = "g1title" })
+
+                                            }
+                                            @if (item.g1Title1 != "")
+                                            {
+                                                @Html.DropDownListFor(m => m.g1Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), @item.g1Title1, new { @class = "form-control", placeholder = "Residency", @id = "g1title" })
+                                            }
+                                            @Html.HiddenFor(model => model.g1Title1, new { @class = "form-control text-label", @id = "g1TitleH", Value = @item.g1Title1 })
+
+                                        </div>
+                                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1FirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.g1FirstName })
+                                            @Html.ValidationMessageFor(m => m.g1FirstName, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1LastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.g1LastName })
+                                            @Html.ValidationMessageFor(m => m.g1LastName, "", new { @class = "error" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-3 " id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1RelWithNominee, new { @class = "form-control text-label", @title = "Relationship With Nominee", @placeholder = "Relationship With Nominee", Value = @item.g1RelWithNominee })
+                                            @Html.ValidationMessageFor(m => m.g1RelWithNominee, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1DoBMinor, new { @class = "form-control",@type="date", @title = "Date Of Birth of Minor", 
+                                           placeholder = "Date Of Birth of Minor (dd / mm / yyyy)", Value = @item.g1DoBMinor.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a2" })
+                                            @Html.ValidationMessageFor(model => model.g1DoBMinor)
+                                        </div>
+                                        <div class="col-sm-5">
+                                            @Html.TextBoxFor(model => model.g1MaturityDoM, new { @class = "form-control", @type = "date", @title = "Maturity Date Of Minor", 
+                                           placeholder = "Maturity Date Of Minor (mm / dd / yyyy)", Value = @item.g1MaturityDoM.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a3" })
+                                            @Html.ValidationMessageFor(model => model.g1MaturityDoM)
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.DropDownListFor(m => m.g1IsResident, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Residency))), new { @class = "form-control", placeholder = "Residency", Value = @item.g1IsResident })
+                                        </div>
+                                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1DoB, new { @class = "form-control",@type="date", @title = "Date Of Birth",
+                                           placeholder = "Date Of Birth (mm / dd / yyyy)", Value = @item.g1DoB.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a4" })
+                                            @Html.ValidationMessageFor(model => model.g1DoB)
+                                        </div>
+                                        <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1NID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.g1NID })
+                                            @Html.ValidationMessageFor(m => m.g1NID, "", new { @class = "error" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1Address, new { @class = "form-control text-label", @title = "Contact Address", @placeholder = "Contact Address", Value = @item.g1Address })
+                                            @Html.ValidationMessageFor(m => m.g1Address, "", new { @class = "error" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1City, new { @class = "form-control text-label", @title = "City", @placeholder = "City", Value = @item.g1City })
+                                            @Html.ValidationMessageFor(m => m.g1City, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1PostCode, new { @class = "form-control text-label", @title = "Post Code", @placeholder = "Post Code", Value = @item.g1PostCode })
+                                            @Html.ValidationMessageFor(m => m.g1PostCode, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1Division, new { @class = "form-control text-label", @title = "Division", @placeholder = "Division", Value = @item.g1Division })
+                                            @Html.ValidationMessageFor(m => m.g1Division, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1Country, new { @class = "form-control text-label", @title = "Country", @placeholder = "Country", Value = @item.g1Country })
+                                            @Html.ValidationMessageFor(m => m.g1Country, "", new { @class = "error" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1Mobile, new { @class = "form-control text-label", @title = "Mobile", @placeholder = "Mobile", Value = @item.g1Mobile })
+                                            @Html.ValidationMessageFor(m => m.g1Mobile, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1Tel, new { @class = "form-control text-label", @title = "Tel", @placeholder = "Tel", Value = @item.g1Tel })
+                                            @Html.ValidationMessageFor(m => m.g1Tel, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1Fax, new { @class = "form-control text-label", @title = "Fax", @placeholder = "Fax", Value = @item.g1Fax })
+                                            @Html.ValidationMessageFor(m => m.g1Fax, "", new { @class = "error" })
+                                        </div>
+                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                            @Html.TextBoxFor(model => model.g1Email, new { @class = "form-control text-label", @title = "E-mail", @placeholder = "E-mail", Value = @item.g1Email })
+                                            @Html.ValidationMessageFor(m => m.g1Email, "", new { @class = "error" })
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="panel">
+                            <div class="radio">
+                                Do you want to Add Nominee 2? <label><input type="radio" name="optradio1" id="yesN2">Yes</label>
+                                <label><input type="radio" name="optradio1" id="noN2" checked>No</label>
+                            </div>
+                        </div>
+
+                                            ////////////////// Nominee 2
+
+                                            <div class="panel panel-primary" id="N2">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Nominee 2</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row ">
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @if (item.n2Title1 == "")
+                                                            {
+                                                                @Html.DropDownListFor(m => m.n2Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Title", new { @class = "form-control", placeholder = "Residency", @id = "n2title" })
+
+                                                            }
+                                                            @if (item.n2Title1 != "")
+                                                            {
+                                                                @Html.DropDownListFor(m => m.n2Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), @item.n2Title1, new { @class = "form-control", placeholder = "Residency", @id = "n2title" })
+                                                            }
+                                                            @Html.HiddenFor(model => model.n2Title1, new { @class = "form-control text-label", @id = "n2TitleH", Value = @item.n2Title1 })
+
+                                                        </div>
+                                                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(model => model.n2FirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.n2FirstName })
+                                                            @Html.ValidationMessageFor(m => m.n2FirstName, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(model => model.n2LastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.n2LastName })
+                                                            @Html.ValidationMessageFor(m => m.n2LastName, "", new { @class = "error" })
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-sm-3 " id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(model => model.n2RelWithACHolder, new { @class = "form-control text-label", @title = "Relationship With A/C Holder", @placeholder = "Relationship With A/C Holder", Value = @item.n2RelWithACHolder })
+                                                            @Html.ValidationMessageFor(m => m.n2RelWithACHolder, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(model => model.n2Percentage, new { @class = "form-control", @title = "Percentage(%)", placeholder = "Percentage(%)", Value = @item.n2Percentage })
+                                                            @Html.ValidationMessageFor(model => model.n2Percentage)
+                                                        </div>
+                                                        <div class="col-sm-3">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.DropDownListFor(m => m.n2IsResident, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Residency))), new { @class = "form-control", placeholder = "Residency", Value = @item.n1FirstName })
+                                                        </div>
+                                                        <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2DoB, new { @class = "form-control",@type="date", @title = "Date Of Birth", 
+                                                           placeholder = "Date Of Birth (dd / mm / yyyy)", Value = @item.n2DoB.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a5" })
+                                                            @Html.ValidationMessageFor(m => m.n2DoB)
+                                                        </div>
+                                                        <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2NID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.n2NID })
+                                                            @Html.ValidationMessageFor(m => m.n2NID, "", new { @class = "error" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2Address, new { @class = "form-control text-label", @title = "Contact Address", @placeholder = "Contact Address", Value = @item.n2Address })
+                                                            @Html.ValidationMessageFor(m => m.n2Address, "", new { @class = "error" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2City, new { @class = "form-control text-label", @title = "City", @placeholder = "City", Value = @item.n2City })
+                                                            @Html.ValidationMessageFor(m => m.n2City, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2PostCode, new { @class = "form-control text-label", @title = "Post Code", @placeholder = "Post Code", Value = @item.n2PostCode })
+                                                            @Html.ValidationMessageFor(m => m.n2PostCode, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2Division, new { @class = "form-control text-label", @title = "Division", @placeholder = "Division", Value = @item.n2Division })
+                                                            @Html.ValidationMessageFor(m => m.n2Division, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2Country, new { @class = "form-control text-label", @title = "Country", @placeholder = "Country", Value = @item.n2Country })
+                                                            @Html.ValidationMessageFor(m => m.n2Country, "", new { @class = "error" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2Mobile, new { @class = "form-control text-label", @title = "Mobile", @placeholder = "Mobile", Value = @item.n2Mobile })
+                                                            @Html.ValidationMessageFor(m => m.n2Mobile, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2Tel, new { @class = "form-control text-label", @title = "Tel", @placeholder = "Tel", Value = @item.n2Tel })
+                                                            @Html.ValidationMessageFor(m => m.n2Tel, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2Fax, new { @class = "form-control text-label", @title = "Fax", @placeholder = "Fax", Value = @item.n2Fax })
+                                                            @Html.ValidationMessageFor(m => m.n2Fax, "", new { @class = "error" })
+                                                        </div>
+                                                        <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                            @Html.TextBoxFor(m => m.n2Email, new { @class = "form-control text-label", @title = "E-mail", @placeholder = "E-mail", Value = @item.n2Email })
+                                                            @Html.ValidationMessageFor(m => m.n2Email, "", new { @class = "error" })
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="panel">
+                                                    <div class="radio">
+                                                        Are you want to Add Nominee 2 Guardian (If Nominee is A Minor))? <label><input type="radio" name="optradio3" id="yesN2G">Yes</label>
+                                                        <label><input type="radio" name="optradio3" id="noN2G" checked>No</label>
+                                                    </div>
+                                                </div>
+
+
+                                                @*// Nominee 2 Guardian (If Nominee is A Minor)*@
+                                                <div id="N2G">
+
+                                                    <div class="panel panel-danger">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Nominee 2 Guardian (If Nominee is A Minor)</h3>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div class="row ">
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @if (item.g2Title1 == "")
+                                                                    {
+                                                                        @Html.DropDownListFor(m => m.g2Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), "Select Title", new { @class = "form-control", placeholder = "Residency", @id = "g2title" })
+
+                                                                    }
+                                                                    @if (item.g2Title1 != "")
+                                                                    {
+                                                                        @Html.DropDownListFor(m => m.g2Title, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Title))), @item.g2Title1, new { @class = "form-control", placeholder = "Residency", @id = "g2title" })
+                                                                    }
+                                                                    @Html.HiddenFor(model => model.g2Title1, new { @class = "form-control text-label", @id = "g2TitleH", Value = @item.g2Title1 })
+
+                                                                </div>
+                                                                <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2FirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.g2FirstName })
+                                                                    @Html.ValidationMessageFor(m => m.g2FirstName, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2LastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.g2LastName })
+                                                                    @Html.ValidationMessageFor(m => m.g2LastName, "", new { @class = "error" })
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="row">
+                                                                <div class="col-sm-3 " id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2RelWithNominee, new { @class = "form-control text-label", @title = "Relationship With Nominee", @placeholder = "Relationship With Nominee", Value = @item.g2RelWithNominee })
+                                                                    @Html.ValidationMessageFor(m => m.g2RelWithNominee, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-4 " id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2DoBMinor, new { @class = "form-control",@type="date", @title = "Date Of Birth of Minor",
+                                                                   placeholder = "Date Of Birth of Minor (mm / dd / yyyy)", Value = @item.g2DoBMinor.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a6" })
+                                                                    @Html.ValidationMessageFor(model => model.g2DoBMinor)
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    @Html.TextBoxFor(model => model.g2MaturityDoM, new { @class = "form-control",@type="date", @title = "Maturity Date Of Minor",
+                                                                   placeholder = "Maturity Date Of Minor (mm / dd / yyyy)", Value = @item.g2MaturityDoM.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a7" })
+                                                                    @Html.ValidationMessageFor(model => model.g2MaturityDoM)
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.DropDownListFor(m => m.g2IsResident, new SelectList(Enum.GetValues(typeof(ONLINEBO.Models.Residency))), new { @class = "form-control", placeholder = "Residency", Value = @item.g2IsResident })
+                                                                </div>
+                                                                <div class="col-sm-4" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2DoB, new { @class = "form-control",@type="date", @title = "Date Of Birth", 
+                                                                   placeholder = "Date Of Birth (mm / dd / yyyy)", Value = @item.g2DoB.GetValueOrDefault().ToString("yyyy-MM-dd"), id = "a8" })
+                                                                    @Html.ValidationMessageFor(model => model.g2DoB)
+                                                                </div>
+                                                                <div class="col-sm-5" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2NID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.g2NID })
+                                                                    @Html.ValidationMessageFor(m => m.g2NID, "", new { @class = "error" })
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-12" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2Address, new { @class = "form-control text-label", @title = "Contact Address", @placeholder = "Contact Address", Value = @item.g2Address })
+                                                                    @Html.ValidationMessageFor(m => m.g2Address, "", new { @class = "error" })
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2City, new { @class = "form-control text-label", @title = "City", @placeholder = "City", Value = @item.g2City })
+                                                                    @Html.ValidationMessageFor(m => m.g2City, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2PostCode, new { @class = "form-control text-label", @title = "Post Code", @placeholder = "Post Code", Value = @item.g2PostCode })
+                                                                    @Html.ValidationMessageFor(m => m.g2PostCode, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2Division, new { @class = "form-control text-label", @title = "Division", @placeholder = "Division", Value = @item.g2Division })
+                                                                    @Html.ValidationMessageFor(m => m.g2Division, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2Country, new { @class = "form-control text-label", @title = "Country", @placeholder = "Country", Value = @item.g2Country })
+                                                                    @Html.ValidationMessageFor(m => m.g2Country, "", new { @class = "error" })
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2Mobile, new { @class = "form-control text-label", @title = "Mobile", @placeholder = "Mobile", Value = @item.g2Mobile })
+                                                                    @Html.ValidationMessageFor(m => m.g2Mobile, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2Tel, new { @class = "form-control text-label", @title = "Tel", @placeholder = "Tel", Value = @item.g2Tel })
+                                                                    @Html.ValidationMessageFor(m => m.g2Tel, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2Fax, new { @class = "form-control text-label", @title = "Fax", @placeholder = "Fax", Value = @item.g2Fax })
+                                                                    @Html.ValidationMessageFor(m => m.g2Fax, "", new { @class = "error" })
+                                                                </div>
+                                                                <div class="col-sm-3" id="abc" data-toggle="tooltip">
+                                                                    @Html.TextBoxFor(model => model.g2Email, new { @class = "form-control text-label", @title = "E-mail", @placeholder = "E-mail", Value = @item.g2Email })
+                                                                    @Html.ValidationMessageFor(m => m.g2Email, "", new { @class = "error" })
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+                                            <div class="panel panel-danger" style="border-color: #8a6d3b;">
+                                                <div class="panel-body">
+                                                    <div style="float:right;">
+                                                        <input type="submit" value="Save and Continue" class="btn btn-info" />
+                                                        <a href="UploadImages"> <input type="button" value="Skip >>|" class="btn btn-danger" /> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+    }
+}
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

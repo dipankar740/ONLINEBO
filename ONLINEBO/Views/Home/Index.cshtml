@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "BO User | Create BO Account| RCL";
+}
+@model ONLINEBO.Models.HomeModel
+
+@*<link href="~/Content/style.css" rel="stylesheet">*@
+@*<link rel=“canonical” href=“https://bo.royalcapitalbd.com">*@
+
+<link href="~/Content/registrationStyle.css" rel="stylesheet" />
+
+
+
+
+
+<div style="padding-top: 5%;">
+
+    <div class="container register" style="box-shadow: 5px 5px 5px 5px #dbdad3; border-radius: 15px; ">
+        <div class="row" style=" ">
+            <div class="col-md-6 register-left">
+                 <img src="~/images/logoSmall.jpg" />
+                <h3>No. 1 Retail Broker in Bangladesh</h3>
+                <p>Call Us On: 16379 or +8809606016379</p>
+
+            </div>
+
+            <div class="col-md-6 register-right" style="background-color: white; float: right;">
+                
+                    
+                        <h3 class="register-heading">Open Your BO Account Now</h3>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+            <div class="form-inline">
+
+                @Html.ValidationSummary(true)
+
+
+                <div class="row" style="font-family: 'Times New Roman'; padding-top: 20%; ">
+                    <div class="col-sm-6" style="padding-top:0px;">
+                        <div class="">
+                            @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control text-label", @required = "required", @placeholder = "Mobile" })
+                            @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "error" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6" style="padding-top:0px;">
+                        <div class="">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control text-label ", @placeholder = "Email", @required = "required", @type = "email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row" style="font-family: 'Times New Roman'; padding-top: 2%; color:blue; font-weight:bold; ">
+                    <div class="col-sm-6" style="padding-top:10px;">
+                        <div class="">
+                            <span><i>Enter Your Promo Code( if available )</i></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6" style="padding-top: 0px;">
+                        <div class="">
+                            @Html.TextBoxFor(model => model.PromoCode, new { @style = "text-transform:uppercase", @class = "form-control text-label ", @placeholder = "Promo Code", @type = "text" })
+                            @Html.ValidationMessageFor(m => m.PromoCode, "", new { @class = "error" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 10px; font-family: 'Times New Roman';">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @*<input type="submit" value="Continue To Registration" class="btn btn-primary" />*@
+                            <input style="font-family:'Times New Roman';font-weight:bold;" type="submit" value="Continue To Registration"
+                                   class="btn btn-primary btn-block" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <a href="Home/Login"><i>Already registered? Please <b style="color:red;">Sign in</b></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" style="padding-top:10px;color:red;">
+
+                    <div class="col-sm-12">
+                        @ViewBag.Message2
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px;color:green;">
+                    <div class="col-sm-12">
+                        @ViewBag.Message1
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top:10px;font-family:'Times New Roman';">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top:20px;font-family:'Times New Roman';">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <h3>Online BO opening Guide – <a href="https://adda.royalcapitalbd.com/introducing-online-bo-account-opening-with-instant-e-kyc-verification/" target="_blank">English</a> or <a href="https://adda.royalcapitalbd.com/bo-account-opening-with-instant-e-kyc-verification/" target="_blank"> বাংলা</a></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top:20px;font-family:'Times New Roman';">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+                        }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>*@
+</div>
+
+
+    @*<div class="row" style="padding:1%;">
+        <div class="col-md-4">
+            <iframe width="450" height="300" src="https://www.youtube.com/embed/fgpi8pOLfJM?list=PLEEDrGea50eqZ3tW7fv4R2otsoiYZk1az" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>*@
+
+    @*<div class="row">
+
+
+        <div class="col-md-4">
+            <h2>Definition of BO Account </h2>
+            <p> A BO Account is a primary account type in the Bangladesh stock market that allows investors to buy and sell securities. The account is registered under the name of the beneficiary owner, giving them full control over the investments made through the account.</p>
+            <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Open Account Online</h2>
+            <p>
+                Royal Capital Ltd - The Top Stockbroker in Bangladesh: Benefit from Online BO Account Opening and Trading.
+                A BO Account, short for Beneficiary Owners Account, is a must for investing in the Bangladesh stock market.
+            </p>
+            <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get Both DSE and CSE</h2>
+            <p>
+                With a BO account, investors can participate in IPO offerings, and trade stocks, bonds, mutual funds,
+                and other listed securities on both the Dhaka Stock Exchange and the Chittagong Stock Exchange.
+            </p>
+            <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
+        </div>
+
+    </div>*@

@@ -1,0 +1,79 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.UserModel
+@{
+    ViewBag.Title = "Authorize Info";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    var user = (IEnumerable<UserModel>)ViewData["userList"];
+}
+    
+<div class="jumbotron" style="background-color:white;margin:0;padding:0;">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+        <br />
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Authorize Information</h3>
+            </div>
+            <div class="panel-body">
+                @Html.ActionLink("Create New User", "CreateUser", "Admin", null, new { @style="color: red;" })
+
+                <div class="row ">
+
+                    <div class="col-md-12" style="padding-top:1%;">
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Branch Name</th>
+                                    <th scope="col">UserID</th>
+                                    <th scope="col">User TYpe</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in user)
+                                {
+                                    
+                                    <tr>
+                                        <th scope="row">@item.SL</th>
+                                        <td>@item.BRANCHNAME</td>
+                                        <td>@item.USERID</td>
+                                        <td>@item.USERTYPE</td>
+                                        <td>@*@Html.ActionLink("Edit", "AccountHolderInfoRecv", "Branch", new { id = item.USERID.ToString() }, null)*@</td>
+                                        <td>@Html.ActionLink("View", "ViewUser", "Admin", new { userID = item.USERID.ToString() }, null)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+    
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

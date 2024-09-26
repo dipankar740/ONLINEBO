@@ -1,0 +1,110 @@
+﻿@model ONLINEBO.Models.HomeModel
+@{
+    ViewBag.Title = "User Login | Best Brokerage House In Bangladesh | RCL";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="margin-top: 10%; ">
+
+    <style>
+        .text-label {
+            width: 100%;
+            display: block;
+            border: none;
+            border-bottom: 2px solid #999;
+            padding: 6px 30px;
+            font-family: Poppins;
+            box-sizing: border-box;
+            border-radius:0;
+        }
+        </style>
+
+    <center>
+        <div class="row" style="background-color: white; border-radius: 15px; width: 80%; padding:5%; box-shadow: 5px 5px 5px 5px #dbdad3; ">
+
+            <div class="col-sm-4" style="margin-top: 2%;">
+                <img src='~/images/signin-image.jpg' class='img-fluid ' alt='Royal Capital' style="height:100%;width:100%;">
+                <br /><br />
+                <a href="/"><b style="color:black;"><i>Create An Account?</i></b></a>
+
+            </div>
+
+
+
+            <div class="col-sm-6" style="float:right;">
+                <br />
+                <span class="text-center" style="font-family:'Times New Roman';font-weight:bold;font-size:30px;">SIGN IN</span>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+
+
+                    <div class="panel-body">
+
+                        <div class="row" style="padding-top:10px;color:red;">
+
+                            <div class="col-sm-12">
+                                @ViewBag.LoginFailed
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top:10px;color:green;">
+                            <div class="col-sm-12">
+                                @ViewBag.LoginSucc
+                            </div>
+                        </div>
+
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group" id="i">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                        </span>
+                                        @Html.TextBoxFor(model => model.TrackingNo, new { @class = "form-control text-label ", @placeholder = "User ID", @required = "required" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group" id="i">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-lock"></span>
+                                        </span>
+                                        @Html.PasswordFor(model => model.Password, new { @class = "form-control text-label ", @placeholder = "Password", @required = "required" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="padding-bottom:5px;">
+                                    <div class="col-md-offset-3 col-sm-offset-3 col-xs-12 col-sm-8 col-md-8  padding-right-zero">
+                                        <input style="font-family:'Times New Roman';font-weight:bold;font-size:20px;" type="submit" value="Login" class="btn btn-primary btn-block" />
+                                    </div>
+                                </div>
+
+                                
+
+                                @if (Session["SeccessReg"] != null)
+                                {
+                                    <div class="row" style="padding-top:15px;color:green;">
+                                        <div class="col-sm-12">
+                                            <i>@Session["SeccessReg"].ToString()</i>
+                                        </div>
+                                    </div>
+                                }
+                            </fieldset>
+                        </form>
+                    </div>
+
+
+
+                }
+            </div>
+
+
+
+        </div>
+    </center>
+</div>
+
+
+

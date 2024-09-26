@@ -1,0 +1,1672 @@
+status: FAILED
+tran_date: 2020-05-06 16:18:13
+tran_id: F70EDA5A65CFA85D
+amount: 550.00
+currency: BDT
+bank_tran_id: 2005061618320Y9kXSi0CbzB1kF
+card_issuer: DBBL Mobile Banking
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 550.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO10217
+status: VALID
+tran_date: 2020-05-06 16:32:00
+tran_id: D9F2AD9627174FAC
+val_id: 2005061632160zqulzYPoGCsNMo
+amount: 550.00
+store_amount: 536.25
+currency: BDT
+bank_tran_id: 2005061632161M35UPrHOhXhtvL
+card_type: BKASH-BKash
+card_issuer: BKash Mobile Banking
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 550.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO10217
+value_b: BO
+value_c: ::1
+risk_title: Safe
+risk_level: 0
+status: VALID
+tran_date: 2020-05-07 02:50:37
+tran_id: DD6CC534178FC69
+val_id: 200507251160P4COovCjE3OpHv
+amount: 550.00
+store_amount: 536.25
+currency: BDT
+bank_tran_id: 20050725116MwFiDwxjqZBC9kD
+card_type: VISA-Dutch Bangla
+card_no: 418117XXXXXX6675
+card_issuer: TRUST BANK, LTD.
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 550.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO10217
+value_b: BO
+value_c: ::1
+risk_title: Safe
+risk_level: 0
+status: CANCELLED
+tran_date: 2020-05-20 03:10:22
+tran_id: EDC3D5AFB6E549D5
+amount: 550.00
+currency: BDT
+currency_type: BDT
+currency_amount: 550.00
+currency_rate: 1.0000
+base_fair: 550.00
+value_a: BO10217
+value_b: BO
+value_c: ::1, Webpage
+value_d: 01671850655
+status: CANCELLED
+tran_date: 2022-05-27 09:44:59
+tran_id: F09D4C05DAD647AE
+amount: 459.18
+currency: BDT
+bank_tran_id: IIa01TBc8x9QxijLSVU4Vb3Mjng=
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22144
+value_b: BO
+value_c: 37.111.205.245, Webpage
+value_d: 01726165152
+status: CANCELLED
+tran_date: 2022-06-03 09:17:36
+tran_id: DEC5F41EF8AEEA1D
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22214
+value_b: BO
+value_c: 103.156.126.74, Webpage
+value_d: 01789138038
+status: FAILED
+tran_date: 2022-06-06 19:11:49
+tran_id: 9943319F70D3F858
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW271720220606121386
+card_no: 470661XXXXXX5309
+card_issuer: STANDARD CHARTERED BANK
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22246
+value_b: BO
+value_c: 182.163.121.3, Webpage
+value_d: 01714449137
+status: FAILED
+tran_date: 2022-06-13 13:24:50
+tran_id: 8280B56BA2AB03EC
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW15782022061369796
+card_no: 470661XXXXXX2456
+card_issuer: STANDARD CHARTERED BANK
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22284
+value_b: BO
+value_c: 182.163.98.99, Webpage
+value_d: 01755650327
+status: CANCELLED
+tran_date: 2022-06-13 13:29:37
+tran_id: 4E97145B189FE95F
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22284
+value_b: BO
+value_c: 182.163.98.100, Webpage
+value_d: 01755650327
+status: FAILED
+tran_date: 2022-06-14 09:48:52
+tran_id: 1BE83D459A715D4
+amount: 450.00
+currency: BDT
+bank_tran_id: UZ34082022061429907
+card_no: 455445XXXXXX8136
+card_issuer: STANDARD CHARTERED BANK
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22287
+value_b: BO
+value_c: 43.240.103.166, Webpage
+value_d: 01969101402
+status: CANCELLED
+tran_date: 2022-06-22 11:26:43
+tran_id: 3D7B9A8AB913DDA5
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22327
+value_b: BO
+value_c: 37.111.198.38, Webpage
+value_d: 01733566461
+status: CANCELLED
+tran_date: 2022-06-22 11:26:43
+tran_id: 3D7B9A8AB913DDA5
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22327
+value_b: BO
+value_c: 37.111.198.38, Webpage
+value_d: 01733566461
+status: CANCELLED
+tran_date: 2022-06-22 11:26:43
+tran_id: 3D7B9A8AB913DDA5
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22327
+value_b: BO
+value_c: 37.111.198.38, Webpage
+value_d: 01733566461
+status: FAILED
+tran_date: 2022-06-27 18:54:19
+tran_id: 5AFB6246816D057D
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW792220220627138891
+card_no: 460547XXXXXX7510
+card_issuer: Shahjalal Islami Bank
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22379
+value_b: BO
+value_c: 202.181.19.238, Webpage
+value_d: 01834618378
+status: CANCELLED
+tran_date: 2022-07-13 11:23:42
+tran_id: C9B77B76D84F6C6A
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22452
+value_b: BO
+value_c: 103.67.159.125, Webpage
+value_d: 01983727890
+status: CANCELLED
+tran_date: 2022-07-13 11:38:18
+tran_id: E9AA62DC10196677
+amount: 450.00
+currency: BDT
+bank_tran_id: NG55032022071354063
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22382
+value_b: BO
+value_c: 103.90.213.170, Webpage
+value_d: 01754455666
+status: CANCELLED
+tran_date: 2022-07-13 12:20:40
+tran_id: F496BC1A4256C0CD
+amount: 450.00
+currency: BDT
+bank_tran_id: NG15282022071363511
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22452
+value_b: BO
+value_c: 103.67.159.125, Webpage
+value_d: 01983727890
+status: FAILED
+tran_date: 2022-07-13 19:13:59
+tran_id: 7AF2E4BC31BCA22E
+amount: 450.00
+currency: BDT
+bank_tran_id: UZ286220220713139599
+card_no: 418115XXXXXX3253
+card_issuer: TRUST BANK LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22454
+value_b: BO
+value_c: 103.196.232.49, Webpage
+value_d: 01678331133
+status: CANCELLED
+tran_date: 2022-07-13 19:25:24
+tran_id: 9A77339AD405A950
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22454
+value_b: BO
+value_c: 103.196.232.49, Webpage
+value_d: 01678331133
+status: FAILED
+tran_date: 2022-07-19 12:23:39
+tran_id: A63A3700EEEB8E0D
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW21532022071964389
+card_no: 417033XXXXXX7068
+card_issuer: Islami Bank Bangladesh Ltd
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22484
+value_b: BO
+value_c: 175.29.179.67, Webpage
+value_d: 01713279736
+status: CANCELLED
+tran_date: 2022-07-25 17:05:42
+tran_id: 2D88D2D7A2EDECC0
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT47992022072595954
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22529
+value_b: BO
+value_c: 103.67.157.0, Webpage
+value_d: 01621946765
+status: FAILED
+tran_date: 2022-07-29 01:13:33
+tran_id: 46813723E4B3F9C8
+amount: 450.00
+currency: BDT
+bank_tran_id: 2YzeILg2oeM85mq97YMe3jZrjKQ=
+card_no: 012000XXXXXX4098
+card_issuer: DUTCH BANGLA BANK
+card_brand: NEXUSCARD
+card_issuer_country: BANGLADESH
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22558
+value_b: BO
+value_c: 113.11.70.85, Webpage
+value_d: 01719829181
+status: CANCELLED
+tran_date: 2022-07-29 20:39:25
+tran_id: FA894BC4D40293BA
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22568
+value_b: BO
+value_c: 59.153.100.218, Webpage
+value_d: 01731786271
+status: CANCELLED
+tran_date: 2022-07-31 14:57:19
+tran_id: D2D008A7C24C8D24
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT72782022073187435
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22588
+value_b: BO
+value_c: 103.127.92.228, Webpage
+value_d: 01856232841
+status: CANCELLED
+tran_date: 2022-08-03 00:36:21
+tran_id: 79F1F993427438EB
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22620
+value_b: BO
+value_c: 103.120.36.92, Webpage
+value_d: 01820196396
+status: FAILED
+tran_date: 2022-08-07 06:49:47
+tran_id: 20030F3D7E9C65D9
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW13022022080714013
+card_no: 490262XXXXXX6596
+card_issuer: IFIC Bank Limited
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22653
+value_b: BO
+value_c: 103.58.74.72, Webpage
+value_d: 01981284481
+status: FAILED
+tran_date: 2022-08-07 06:49:47
+tran_id: 20030F3D7E9C65D9
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW13022022080714013
+card_no: 490262XXXXXX6596
+card_issuer: IFIC Bank Limited
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22653
+value_b: BO
+value_c: 103.58.74.72, Webpage
+value_d: 01981284481
+status: FAILED
+tran_date: 2022-08-07 06:49:47
+tran_id: 20030F3D7E9C65D9
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW13022022080714013
+card_no: 490262XXXXXX6596
+card_issuer: IFIC Bank Limited
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22653
+value_b: BO
+value_c: 103.58.74.72, Webpage
+value_d: 01981284481
+status: CANCELLED
+tran_date: 2022-08-15 00:36:08
+tran_id: 44D88EBE0D3A8CD5
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22720
+value_b: BO
+value_c: 103.67.156.116, Webpage
+value_d: 01909243653
+status: FAILED
+tran_date: 2022-08-15 15:08:09
+tran_id: 846472BED50DA055
+amount: 450.00
+currency: BDT
+bank_tran_id: lc4BZ1FaGQyDpIax2SvKcjvkdt0=
+card_no: 00
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22732
+value_b: BO
+value_c: 103.133.207.102, Webpage
+value_d: 01798069018
+status: FAILED
+tran_date: 2022-08-16 11:47:31
+tran_id: 7591FD49230380BF
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW91302022081647020
+card_no: 458790XXXXXX6685
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22520
+value_b: BO
+value_c: 103.144.236.50, Webpage
+value_d: 01726200067
+status: FAILED
+tran_date: 2022-08-22 16:14:28
+tran_id: 23F034A2920E8202
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW49852022082295551
+card_no: 470661XXXXXX0839
+card_issuer: STANDARD CHARTERED BANK
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22479
+value_b: BO
+value_c: 182.160.110.182, Webpage
+value_d: 01713165349
+status: FAILED
+tran_date: 2022-08-22 16:25:42
+tran_id: 878D209CA082E3D5
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW24102022082297015
+card_no: 470661XXXXXX0839
+card_issuer: STANDARD CHARTERED BANK
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22479
+value_b: BO
+value_c: 182.160.110.182, Webpage
+value_d: 01713165349
+status: CANCELLED
+tran_date: 2022-08-24 10:15:41
+tran_id: A91088F5AE88622A
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO22764
+value_b: BO
+value_c: 119.30.32.249, Webpage
+value_d: 01755654900
+status: FAILED
+tran_date: 2022-08-25 13:35:36
+tran_id: 2A378CC2B13A1B98
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW67382022082578271
+card_no: 470661XXXXXX0839
+card_issuer: STANDARD CHARTERED BANK
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22479
+value_b: BO
+value_c: 182.160.110.182, Webpage
+value_d: 01713165349
+status: CANCELLED
+tran_date: 2022-08-26 00:11:06
+tran_id: ABA764B8D3BE0875
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22805
+value_b: BO
+value_c: 103.78.188.222, Webpage
+value_d: 01742523151
+status: CANCELLED
+tran_date: 2022-08-26 00:11:53
+tran_id: 34A470106E8C7EAA
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT85442022082601737
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22805
+value_b: BO
+value_c: 103.78.188.222, Webpage
+value_d: 01742523151
+status: FAILED
+tran_date: 2022-09-11 23:09:51
+tran_id: 785E5DCBBEAA27F3
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW109320220911196852
+card_no: 540644XXXXXX6547
+card_issuer: AL-ARAFAH ISLAMI BANK LIMITED
+card_brand: MASTERCARD
+card_issuer_country: BANGLADESH
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23055
+value_b: BO
+value_c: 175.41.45.180, Webpage
+value_d: 01723130024
+status: CANCELLED
+tran_date: 2022-09-11 23:12:27
+tran_id: 27226D56070AE66B
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23055
+value_b: BO
+value_c: 175.41.45.180, Webpage
+value_d: 01723130024
+status: CANCELLED
+tran_date: 2022-09-12 22:33:48
+tran_id: 72F2CDF88FD61116
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23069
+value_b: BO
+value_c: 27.123.255.247, Webpage
+value_d: 01997545106
+status: FAILED
+tran_date: 2022-09-13 12:25:09
+tran_id: E154854C22AC54AC
+amount: 450.00
+currency: BDT
+bank_tran_id: CT38512022091358108
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22089
+value_b: BO
+value_c: 103.230.104.48, Webpage
+value_d: 01567978997
+status: FAILED
+tran_date: 2022-09-13 17:51:58
+tran_id: 98E10AD9A3E44C56
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW994320220913114932
+card_no: 432147XXXXXX8771
+card_issuer: BRAC BANK LIMITED
+card_brand: VISA
+card_issuer_country: BANGLADESH
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23044
+value_b: BO
+value_c: 103.242.23.190, Webpage
+value_d: 01813001971
+status: FAILED
+tran_date: 2022-09-13 18:00:21
+tran_id: 521646408DB61EED
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW128320220913116517
+card_no: 432147XXXXXX8771
+card_issuer: BRAC BANK LIMITED
+card_brand: VISA
+card_issuer_country: BANGLADESH
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23044
+value_b: BO
+value_c: 103.242.23.190, Webpage
+value_d: 01813001971
+status: CANCELLED
+tran_date: 2022-09-19 02:52:24
+tran_id: 6F2076D276B6D7D4
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT78642022091908670
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23220
+value_b: BO
+value_c: 103.31.154.231, Webpage
+value_d: 01613303395
+status: CANCELLED
+tran_date: 2022-09-19 09:31:25
+tran_id: 9BA292E9F9B92C42
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT62562022091925530
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23220
+value_b: BO
+value_c: 103.25.251.246, Webpage
+value_d: 01613303395
+status: CANCELLED
+tran_date: 2022-09-20 23:29:27
+tran_id: E924FCA56C3A8357
+amount: 450.00
+currency: BDT
+bank_tran_id: NG144120220920170536
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO20486
+value_b: BO
+value_c: 103.140.212.6, Webpage
+value_d: 01630746152
+status: CANCELLED
+tran_date: 2022-09-20 23:29:45
+tran_id: E924FCA56C3A8357
+amount: 450.00
+currency: BDT
+bank_tran_id: NG688920220920170538
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO20486
+value_b: BO
+value_c: 103.140.212.6, Webpage
+value_d: 01630746152
+status: CANCELLED
+tran_date: 2022-09-20 23:29:45
+tran_id: E924FCA56C3A8357
+amount: 450.00
+currency: BDT
+bank_tran_id: NG688920220920170538
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO20486
+value_b: BO
+value_c: 103.140.212.6, Webpage
+value_d: 01630746152
+status: CANCELLED
+tran_date: 2022-09-20 23:29:45
+tran_id: E924FCA56C3A8357
+amount: 450.00
+currency: BDT
+bank_tran_id: NG688920220920170538
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO20486
+value_b: BO
+value_c: 103.140.212.6, Webpage
+value_d: 01630746152
+status: FAILED
+tran_date: 2022-09-22 10:09:26
+tran_id: 13C9FEFB06830E7C
+amount: 450.00
+currency: BDT
+bank_tran_id: BGT96462022092236954
+card_issuer: BKash Mobile Banking
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23273
+value_b: BO
+value_c: 103.25.251.238, Webpage
+value_d: 01729119000
+status: FAILED
+tran_date: 2022-09-22 10:09:26
+tran_id: 13C9FEFB06830E7C
+amount: 450.00
+currency: BDT
+bank_tran_id: BGT96462022092236954
+card_issuer: BKash Mobile Banking
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23273
+value_b: BO
+value_c: 103.25.251.238, Webpage
+value_d: 01729119000
+status: FAILED
+tran_date: 2022-09-22 10:15:52
+tran_id: AC2853414C3FDF91
+amount: 450.00
+currency: BDT
+bank_tran_id: NG70932022092238415
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23273
+value_b: BO
+value_c: 103.25.251.238, Webpage
+value_d: 01729119000
+status: FAILED
+tran_date: 2022-09-25 06:19:01
+tran_id: E1F4627714E9A9AA
+amount: 450.00
+currency: BDT
+bank_tran_id: NG21872022092511027
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23273
+value_b: BO
+value_c: 103.25.249.226, Webpage
+value_d: 01729119000
+status: FAILED
+tran_date: 2022-09-27 06:32:51
+tran_id: 47117D7C38C5CCE
+amount: 450.00
+currency: BDT
+bank_tran_id: BGT61942022092715304
+card_issuer: BKash Mobile Banking
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23273
+value_b: BO
+value_c: 103.25.251.242, Webpage
+value_d: 01729119000
+status: CANCELLED
+tran_date: 2022-10-12 14:17:52
+tran_id: 860AFA255A9CCA7B
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT20352022101278334
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO22162
+value_b: BO
+value_c: 202.86.218.187, Webpage
+value_d: 01723329262
+status: CANCELLED
+tran_date: 2022-10-15 16:06:39
+tran_id: AB0A3358E49E8011
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23410
+value_b: BO
+value_c: 180.92.228.246, Webpage
+value_d: 01670024787
+status: CANCELLED
+tran_date: 2022-10-15 16:53:04
+tran_id: 6F7DB17CC211771B
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT18232022101585779
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23410
+value_b: BO
+value_c: 180.92.228.246, Webpage
+value_d: 01670024787
+status: CANCELLED
+tran_date: 2022-10-16 14:13:52
+tran_id: 24A07B44A386B9E1
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT79012022101674767
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23410
+value_b: BO
+value_c: 180.92.228.246, Webpage
+value_d: 01670024787
+status: CANCELLED
+tran_date: 2022-11-02 22:08:48
+tran_id: 76EF1C2290AEA520
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23490
+value_b: BO
+value_c: 103.31.154.230, Webpage
+value_d: 01747017210
+status: CANCELLED
+tran_date: 2022-11-02 23:14:54
+tran_id: 3FED62027F5F99B8
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23491
+value_b: BO
+value_c: 103.31.154.230, Webpage
+value_d: 01747017210
+status: CANCELLED
+tran_date: 2022-11-02 23:14:54
+tran_id: 3FED62027F5F99B8
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23491
+value_b: BO
+value_c: 103.31.154.230, Webpage
+value_d: 01747017210
+status: CANCELLED
+tran_date: 2022-11-04 18:44:17
+tran_id: 959C8B7BBF0ED106
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT403320221104111914
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23503
+value_b: BO
+value_c: 103.192.157.173, Webpage
+value_d: 01772503653
+status: CANCELLED
+tran_date: 2022-11-04 18:44:17
+tran_id: 959C8B7BBF0ED106
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT403320221104111914
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23503
+value_b: BO
+value_c: 103.192.157.173, Webpage
+value_d: 01772503653
+status: CANCELLED
+tran_date: 2022-11-05 21:51:52
+tran_id: 4C5F69D10425472B
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23498
+value_b: BO
+value_c: 202.134.14.143, Webpage
+value_d: 01717457817
+status: CANCELLED
+tran_date: 2022-11-15 13:07:51
+tran_id: 9927E8ABE69726BA
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT39632022111564638
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23529
+value_b: BO
+value_c: 119.30.35.210, Webpage
+value_d: 01735025700
+status: FAILED
+tran_date: 2022-11-18 10:27:00
+tran_id: 7F72F1C9DDF946DC
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW64342022111828672
+card_no: 468759XXXXXX0100
+card_issuer: Islami Bank Bangladesh Ltd
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23573
+value_b: BO
+value_c: 103.73.226.138, Webpage
+value_d: 01710937438
+status: FAILED
+tran_date: 2022-11-18 10:34:01
+tran_id: C9DA4378DF847383
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW14522022111829907
+card_no: 498773XXXXXX0939
+card_issuer: ISLAMI BANK BANGLADESH, LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23573
+value_b: BO
+value_c: 103.73.226.138, Webpage
+value_d: 01710937438
+status: FAILED
+tran_date: 2022-11-18 10:53:25
+tran_id: C3A1800178345DAA
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW72472022111832754
+card_no: 498773XXXXXX0939
+card_issuer: ISLAMI BANK BANGLADESH, LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23573
+value_b: BO
+value_c: 103.73.226.138, Webpage
+value_d: 01710937438
+status: FAILED
+tran_date: 2022-11-18 10:53:25
+tran_id: C3A1800178345DAA
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW72472022111832754
+card_no: 498773XXXXXX0939
+card_issuer: ISLAMI BANK BANGLADESH, LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23573
+value_b: BO
+value_c: 103.73.226.138, Webpage
+value_d: 01710937438
+status: CANCELLED
+tran_date: 2022-11-20 06:05:23
+tran_id: 2F49335BE1FB6325
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23573
+value_b: BO
+value_c: 103.73.226.138, Webpage
+value_d: 01710937438
+status: CANCELLED
+tran_date: 2022-11-21 14:28:47
+tran_id: DCB5CBF59FF496E4
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23594
+value_b: BO
+value_c: 103.181.43.1, Webpage
+value_d: 01314668161
+status: CANCELLED
+tran_date: 2022-11-29 03:15:07
+tran_id: 3EB9002EC655EEB8
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23618
+value_b: BO
+value_c: 118.179.106.241, Webpage
+value_d: 01917154267
+status: CANCELLED
+tran_date: 2022-12-03 16:16:46
+tran_id: 91CF3FD749767495
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT658220221203115602
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23629
+value_b: BO
+value_c: 37.111.213.6, Webpage
+value_d: 01711038684
+status: FAILED
+tran_date: 2022-12-11 14:27:01
+tran_id: D67C3F6543C4BCB5
+amount: 450.00
+currency: BDT
+bank_tran_id: NG67852022121190710
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23644
+value_b: BO
+value_c: 103.230.107.18, Webpage
+value_d: 01581137950
+status: CANCELLED
+tran_date: 2022-12-20 18:37:37
+tran_id: 82ABA406E7387DB9
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT238220221220137950
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23660
+value_b: BO
+value_c: 59.153.16.4, Webpage
+value_d: 01999659777
+status: CANCELLED
+tran_date: 2023-01-16 19:43:52
+tran_id: 6066A037F1C965C2
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23732
+value_b: BO
+value_c: 45.251.228.232, Webpage
+value_d: 01627551477
+status: CANCELLED
+tran_date: 2023-01-17 14:38:12
+tran_id: 1737EC81CB585572
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT58772023011781889
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23732
+value_b: BO
+value_c: 45.251.228.232, Webpage
+value_d: 01627551477
+status: FAILED
+tran_date: 2023-01-22 13:03:23
+tran_id: B4BCDF1D0FED4A92
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW39442023012272767
+card_no: 461945XXXXXX1169
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23825
+value_b: BO
+value_c: 113.11.62.43, Webpage
+value_d: 01763369270
+status: CANCELLED
+tran_date: 2023-01-23 08:01:44
+tran_id: BB6DF23B40EB8F38
+amount: 450.00
+currency: BDT
+bank_tran_id: AD46282023012318337
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23834
+value_b: BO
+value_c: 43.231.30.230, Webpage
+value_d: 01871753607
+status: FAILED
+tran_date: 2023-01-25 13:02:51
+tran_id: 76143DD6F0077ACC
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW29902023012576524
+card_no: 463764XXXXXX1457
+card_issuer: BANK ASIA LIMITED
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23844
+value_b: BO
+value_c: 103.133.207.78, Webpage
+value_d: 01763430000
+status: CANCELLED
+tran_date: 2023-01-30 18:25:00
+tran_id: 96069E63A5A9587D
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT892120230130127702
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23923
+value_b: BO
+value_c: 42.0.4.235, Webpage
+value_d: 01871106120
+status: CANCELLED
+tran_date: 2023-02-01 11:05:56
+tran_id: 8B2E8062612C8014
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO23934
+value_b: BO
+value_c: 103.152.102.195, Webpage
+value_d: 01748707617
+status: CANCELLED
+tran_date: 2023-02-01 20:28:33
+tran_id: E8ABCDE2AF0735FB
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT812120230201184509
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23940
+value_b: BO
+value_c: 103.147.162.98, Webpage
+value_d: 01918935263
+status: CANCELLED
+tran_date: 2023-03-04 14:19:45
+tran_id: 343F38B899163A2D
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO24103
+value_b: BO
+value_c: 43.250.83.87, Webpage
+value_d: 01712061966
+status: CANCELLED
+tran_date: 2023-03-04 15:20:33
+tran_id: 2D5242FDEDBE0A86
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO24103
+value_b: BO
+value_c: 43.250.83.87, Webpage
+value_d: 01712061966
+status: CANCELLED
+tran_date: 2023-03-25 01:15:28
+tran_id: 5B1070F39C646854
+amount: 450.00
+currency: BDT
+bank_tran_id: NG98672023032506181
+card_issuer: Nagad
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO23273
+value_b: BO
+value_c: 103.25.251.247, Webpage
+value_d: 01729119000
+status: FAILED
+tran_date: 2023-03-29 23:20:22
+tran_id: 8983DE8BE3214DEB
+amount: 450.00
+currency: BDT
+bank_tran_id: vK5vZVYXLv5MxYQuppxWpUO3G68=
+card_no: 012000XXXXXX0883
+card_issuer: DUTCH BANGLA BANK
+card_brand: NEXUSCARD
+card_issuer_country: BANGLADESH
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24173
+value_b: BO
+value_c: 58.145.188.240, Webpage
+value_d: 01813112134
+status: CANCELLED
+tran_date: 2023-04-12 17:13:20
+tran_id: B964919DA3272CCD
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT954820230412134726
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24269
+value_b: BO
+value_c: 103.151.132.7, Webpage
+value_d: 01725216906
+status: CANCELLED
+tran_date: 2023-04-13 06:21:41
+tran_id: B15FF50AD5EBEB3F
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT27772023041329048
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO10475
+value_b: BO
+value_c: 37.111.206.51, Webpage
+value_d: 01314072328
+status: CANCELLED
+tran_date: 2023-04-15 01:28:23
+tran_id: 5FFA2C526ADB3EE5
+amount: 458.25
+currency: BDT
+bank_tran_id: BGT50012023041511304
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24312
+value_b: BO
+value_c: 43.250.83.246, Webpage
+value_d: 01746683902
+status: CANCELLED
+tran_date: 2023-04-22 17:00:08
+tran_id: 905B6593150F3D7E
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO24344
+value_b: BO
+value_c: 103.25.248.236, Webpage
+value_d: 01618054404
+status: CANCELLED
+tran_date: 2023-04-29 21:03:25
+tran_id: 7525FE10663F4A
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO24354
+value_b: BO
+value_c: 202.134.14.159, Webpage
+value_d: 01911057104
+status: FAILED
+tran_date: 2023-04-30 18:25:04
+tran_id: C4E35C711C2FD19B
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW338520230430220155
+card_no: 417033XXXXXX0482
+card_issuer: Islami Bank Bangladesh Ltd
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24367
+value_b: BO
+value_c: 113.21.230.50, Webpage
+value_d: 01777398652
+status: CANCELLED
+tran_date: 2023-04-30 18:33:46
+tran_id: 6D27A83ECC903D86
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO24367
+value_b: BO
+value_c: 113.21.230.50, Webpage
+value_d: 01777398652
+status: FAILED
+tran_date: 2023-05-09 16:42:30
+tran_id: 1066CE12A4837FCD
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW904220230509134201
+card_no: 418117XXXXXX3587
+card_issuer: TRUST BANK LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO15442
+value_b: BO
+value_c: 43.250.80.246, Webpage
+value_d: 01832634060
+status: FAILED
+tran_date: 2023-05-09 16:42:30
+tran_id: 1066CE12A4837FCD
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW904220230509134201
+card_no: 418117XXXXXX3587
+card_issuer: TRUST BANK LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO15442
+value_b: BO
+value_c: 43.250.80.246, Webpage
+value_d: 01832634060
+status: FAILED
+tran_date: 2023-05-11 00:23:26
+tran_id: 138C644101FCEDA9
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW94932023051104272
+card_no: 481676XXXXXX5796
+card_issuer: PREMIER BANK LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24407
+value_b: BO
+value_c: 160.202.144.243, Webpage
+value_d: 01786959593
+status: FAILED
+tran_date: 2023-05-11 00:28:22
+tran_id: 952ADEB2198E9F00
+amount: 450.00
+currency: BDT
+bank_tran_id: UZ41422023051104840
+card_no: 481676XXXXXX5796
+card_issuer: PREMIER BANK LTD
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24407
+value_b: BO
+value_c: 160.202.144.243, Webpage
+value_d: 01786959593
+status: FAILED
+tran_date: 2023-05-16 08:40:01
+tran_id: 441AFC5C74C31E63
+amount: 450.00
+currency: BDT
+bank_tran_id: 8OSp7IylZh9z2txqgdCrXR7H5EU=
+card_no: 00
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24425
+value_b: BO
+value_c: 202.5.37.138, Webpage
+value_d: 01920252615
+status: FAILED
+tran_date: 2023-05-17 21:53:09
+tran_id: B39BE1F756384BCE
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW329120230517188073
+card_no: 474867XXXXXX1461
+card_issuer: THE CITY BANK LTD
+card_brand: VISA
+card_issuer_country: BANGLADESH
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO24415
+value_b: BO
+value_c: 103.67.157.99, Webpage
+value_d: 01916414664
+status: CANCELLED
+tran_date: 2023-05-21 18:35:28
+tran_id: 6533D7549FB9C5CA
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 0.00
+value_a: BO24472
+value_b: BO
+value_c: 202.53.166.178, Webpage
+value_d: 01727655399
+status: FAILED
+tran_date: 2023-05-24 09:30:59
+tran_id: B9B68D7F24B9B0B7
+amount: 450.00
+currency: BDT
+bank_tran_id: UZ31922023052434568
+card_no: 534273XXXXXX2707
+card_issuer: LankaBangla Finance Limited
+card_brand: MASTERCARD
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO17030
+value_b: BO
+value_c: 163.47.37.227, Webpage
+value_d: 01538190942
+status: CANCELLED
+tran_date: 2023-05-24 09:41:55
+tran_id: A57C99E71AD2ADA3
+amount: 450.00
+currency: BDT
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO17030
+value_b: BO
+value_c: 163.47.37.227, Webpage
+value_d: 01538190942
+status: FAILED
+tran_date: 2023-05-24 11:25:16
+tran_id: 42233B0965F92D4A
+amount: 450.00
+currency: BDT
+bank_tran_id: BZW27642023052457525
+card_no: 423717XXXXXX4142
+card_issuer: Eastern Bank Ltd
+card_brand: VISA
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 450.00
+currency_rate: 1.0000
+base_fair: 450.00
+value_a: BO17030
+value_b: BO
+value_c: 163.47.37.227, Webpage
+value_d: 01538190942
+status: FAILED
+tran_date: 2023-06-20 14:27:50
+tran_id: C0429B6D87821DE9
+amount: 10.00
+currency: BDT
+bank_tran_id: BGT525420230620109504
+card_issuer: BKash Mobile Banking
+card_brand: MOBILEBANKING
+card_issuer_country: Bangladesh
+card_issuer_country_code: BD
+currency_type: BDT
+currency_amount: 10.00
+currency_rate: 1.0000
+base_fair: 10.00
+value_a: BO24726
+value_b: BO
+value_c: ::1, Webpage
+value_d: 01954087772

@@ -1,0 +1,165 @@
+﻿@using ONLINEBO.Models
+@model ONLINEBO.Models.OnlineBODetailModel
+@{
+    ViewBag.Title = "Payment Option";
+    Layout = "~/Views/Shared/_LayoutBranch.cshtml";
+}
+
+
+@* data={"paymentID":"HLRSUAK1568288217132","createTime":"2019-09-12T11:36:57:186%20GMT+0000","updateTime":"2019-09-12T11:37:28:697%20GMT+0000","trxID":"6IC5TYX2LB","transactionStatus":"Completed","amount":"100","currency":"BDT","intent":"sale"} *@
+
+
+<div class="jumbotron" style="background-color:white;margin:0;">
+    @*@using (Html.BeginForm(null, null, FormMethod.Get, new { @action = "http://103.4.67.188:8182/payment/payment.php" }))*@
+
+
+    <div class="panel panel-primary" style="border-color: #86322c;">
+        <div class="panel-heading" style="background-color: #86322c; border-color: #86322c;">
+            <h3 class="panel-title">Payment Option (BO Account)</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row ">
+                <div class="col-sm-12" id="abc" data-toggle="tooltip">
+
+                    <table cellspacing="3">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @action = "https://bo.royalcapitalbd.com/payment/payment.php" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(true)
+                            <tr>
+                                <td>Tracking No:</td>
+                                <td><input style="margin:10px" type="text" class="form-control" name="rcode" placeholder="Amount" id="rcode" value='@Session["trackingno"]' readonly="true" /></td>
+                            </tr>
+                            <tr>
+                                <td>Amount:</td>
+                                <td><input style="margin:10px" type="text" class="form-control" name="amount" placeholder="Amount" id="amount" value="450" readonly="true" /> </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                @*<td><input id="bKash_button" class="btn-danger" type="submit" value="Pay With bKash" />   </td>*@
+
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            @*<td>Or...</td>*@
+                        </tr>
+                        <tr>
+                            <td></td>
+
+                            @if (ViewBag.paid == "unpaid")
+                            {
+
+                                <td>
+                                    <div style="margin:10px">
+                                        <button class="btn btn-info" id="sslczPayBtn"
+                                                token="if you have any token validation"
+                                                postdata="your javascript arrays or objects which requires in backend"
+                                                order="If you already have the transaction generated for current order"
+                                                endpoint="/Branch/mycall">
+                                            Payment
+                                        </button>
+                                    </div>
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <button class="btn btn-success" id="sslczPayBtn" order="If you already have the transaction generated for current order" endpoint="/Client/mycall" disabled>
+                                        Already Paid
+                                    </button>
+
+                                </td>
+                                <p style="color:darkslateblue">Your BO Fees and CDBL charge is already paid. You no longer need to pay again. Please wait for approval. </p>
+                            }
+
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    .custom_btn_bkash {
+        position: relative;
+        background: #d71b5d;
+        border: 0 none;
+        color: #fff;
+        padding: 8px 20px 8px 70px;
+        border-radius: 4px;
+        height: 42px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 13px;
+        width: 254px;
+        outline: 0;
+        overflow: hidden;
+    }
+
+    .custom_btn_ssl {
+        position: relative;
+        background: #3498db;
+        border: 0 none;
+        color: #fff;
+        padding: 8px 20px 8px 70px;
+        border-radius: 4px;
+        height: 42px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 13px;
+        width: 254px;
+        outline: 0;
+        overflow: hidden;
+    }
+</style>
+
+@*<script>
+
+
+        (function (window, document) {
+            var loader = function () {
+                var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+                script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+                tag.parentNode.insertBefore(script, tag);
+            };
+
+            window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+        })(window, document);
+    </script>*@
+
+<script>
+    (function (window, document) {
+        var loader = function () {
+            var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+            script.src = "https://seamless-epay.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+            tag.parentNode.insertBefore(script, tag);
+        };
+
+        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+    })(window, document);
+</script>

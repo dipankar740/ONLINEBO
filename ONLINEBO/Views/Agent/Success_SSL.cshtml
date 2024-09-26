@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Success_SSL";
+    Layout = "~/Views/Shared/_LayoutAgent.cshtml";
+}
+
+@model Dictionary<string, string>
+<article class="message is-success">
+    <div class="message-header">
+        <p>Payment has been successfully processed. <a href="/">Return to home</a>.</p>
+    </div>
+    <div class="message-body">
+        @foreach (var prop in Model)
+        {
+            using (StreamWriter writer = new StreamWriter(Server.MapPath("/logs/SSL_transactions.txt"), true))
+            {
+                writer.WriteLine(prop.Key + ": " + prop.Value);
+            }
+            <code>@prop.Key: @prop.Value</code>
+            <br>
+        }
+    </div>
+</article>
+
+
