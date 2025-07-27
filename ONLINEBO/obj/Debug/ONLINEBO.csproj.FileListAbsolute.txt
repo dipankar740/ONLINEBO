@@ -161,7 +161,6 @@ D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\Microsoft.AspNet.Identity.EntityFra
 D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\Microsoft.Owin.xml
 D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\Microsoft.Owin.Security.xml
 D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\Microsoft.Owin.Security.OAuth.xml
-D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\Newtonsoft.Json.pdb
 D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\Newtonsoft.Json.xml
 D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\System.Buffers.xml
 D:\Royal Capital Works\ONLINEBO\ONLINEBO\bin\System.Collections.Immutable.xml

@@ -21,7 +21,7 @@ namespace ONLINEBO.Controllers
             if (id != null)
                 Session["RefarralCode"] = id; //Request.QueryString[id].ToString();
             if (id == null)
-                Session["RefarralCode"] = "0";
+                Session["RefarralCode"] = "155";
 
             return View();
         }
@@ -255,7 +255,7 @@ namespace ONLINEBO.Controllers
             }
             catch
             {
-                ViewBag.Message2 = "Registration Failed.Email Not Sent.Please check your Registration Details!!!";
+                ViewBag.Message2 = "Registration Failed.Please check your Registration Details!!!";
                 return View();
             }
         }

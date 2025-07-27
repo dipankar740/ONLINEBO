@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using CrystalDecisions.Shared;
 
 namespace ONLINEBO.Controllers
 {
@@ -1500,12 +1501,15 @@ namespace ONLINEBO.Controllers
         ///end of SSL Commerz payment gateway
 
         [HttpPost]
-        public ActionResult SendOTP()
+        public async Task<ActionResult> SendOTP(bool isInetrnationalNo)
         {
             Session["OTP"]=string.Empty;
             try
             {
-                string mobile = "";
+                string send_whatsUp_sms = "";
+                string snd_sms_data = "";
+
+				string mobile = "";
                 string SqlConn = ConfigurationManager.ConnectionStrings["RCLWEB"].ToString();
 
                 SqlConnection oConnection = new SqlConnection(SqlConn);
@@ -1523,21 +1527,43 @@ namespace ONLINEBO.Controllers
 
                 if (mobile != null)
                 {
-                    string snd_sms_data = send_SMS_automatically(mobile);
-
-                    if (snd_sms_data != "failed")
+                    if (isInetrnationalNo)
                     {
-                        Session["OTP"] = snd_sms_data.ToString();
-                      //  TempData["messageSuccess"] = "OTP Succesfully sent your mobile.";
-                        return Json(new { success=true,msg= "OTP Succesfully sent your mobile" });
-                        //return RedirectToAction("EkycIndex", "Client");
-                    }
+					     send_whatsUp_sms = await send_WhatsUp_SMS_automatically(mobile);
+
+						if (send_whatsUp_sms != "failed")
+						{
+							Session["OTP"] = send_whatsUp_sms.ToString();
+							return Json(new { success = true, msg = "OTP Succesfully sent your WhatsApp application" });
+							
+						}
+						else
+						{	
+							return Json(new { success = false, msg = "OTP Sent Failed to your WhatsApp application!!! Plese Try Again Later" });							
+						}
+
+					}
                     else
                     {
-                      //  TempData["message"] = "OTP Sent Failed !!! Plese Try Again Later";
-                        return Json(new { success = false, msg = "OTP Sent Failed !!! Plese Try Again Later" });
-                        //return RedirectToAction("EkycIndex", "Client");
-                    }
+						snd_sms_data = send_SMS_automatically(mobile);
+
+						if (snd_sms_data != "failed")
+						{
+							Session["OTP"] = snd_sms_data.ToString();
+							//  TempData["messageSuccess"] = "OTP Succesfully sent your mobile.";
+							return Json(new { success = true, msg = "OTP Succesfully sent your mobile" });
+							//return RedirectToAction("EkycIndex", "Client");
+						}
+
+						else
+						{
+							//  TempData["message"] = "OTP Sent Failed !!! Plese Try Again Later";
+							return Json(new { success = false, msg = "OTP Sent Failed !!! Plese Try Again Later" });
+							//return RedirectToAction("EkycIndex", "Client");
+						}
+					}
+                        
+
                 }
                 else
                 {
@@ -1556,7 +1582,8 @@ namespace ONLINEBO.Controllers
             }
         }
 
-        public string send_SMS_automatically(string mobileNo)
+
+		public string send_SMS_automatically(string mobileNo)
         {
             Random ran_num = new Random();
             string verification_code = ran_num.Next(100000, 999999).ToString();
@@ -1583,7 +1610,76 @@ namespace ONLINEBO.Controllers
             return response;
         }
 
-        public ActionResult DownloadBO(string id)
+		public async Task<string> send_WhatsUp_SMS_automatically(string mobileNo)
+		{
+			Random ran_num = new Random();
+			string verification_code = ran_num.Next(100000, 999999).ToString();
+			string responseContent = "failed";
+
+			string apiUrl = "https://backend.aisensy.com/campaign/t1/api/v2";
+
+			// Define the request body
+			var requestBody = new
+			{
+				apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YmUyNjVkY2IwYTM0MGJkMzNiYTg1YyIsIm5hbWUiOiJSb3lhbCBDYXBpdGFsIEx0ZC4iLCJhcHBOYW1lIjoiQWlTZW5zeSIsImNsaWVudElkIjoiNjRiZTI2NWRjYjBhMzQwYmQzM2JhODU2IiwiYWN0aXZlUGxhbiI6IkJBU0lDX01PTlRITFkiLCJpYXQiOjE2OTAxODMyNjF9.zSIlck9dwspcMH2dEG1_tOAWNbXcVi24SC-GUU2u-Qc",
+				campaignName = "bo_registration_authentication",
+				destination = mobileNo,
+				userName = "Royal Capital",
+				templateParams = new string[] { verification_code },
+				buttons = new[]
+				{
+			new
+			{
+				type = "button",
+				sub_type = "url",
+				index = "0",
+				parameters = new[]
+				{
+					new
+					{
+						type = "text",
+						text = verification_code
+					}
+				}
+			}
+		}
+			};
+			System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+			string jsonRequestBody = JsonConvert.SerializeObject(requestBody);
+
+			using (HttpClient client = new HttpClient())
+			{
+				try
+				{
+					// Send the POST request with the JSON body, setting Content-Type via StringContent
+					var content = new StringContent(jsonRequestBody, Encoding.UTF8, "application/json");
+					HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+
+					// Check if the request was successful
+					if (response.IsSuccessStatusCode)
+					{
+						responseContent = await response.Content.ReadAsStringAsync();
+                        responseContent = verification_code;
+
+						Console.WriteLine("Response: " + responseContent);
+					}
+					else
+					{
+						Console.WriteLine("Error: " + response.StatusCode);
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine("Request failed: " + ex.Message);
+				}
+			}
+
+			return responseContent;
+		}
+
+
+		public ActionResult DownloadBO(string id)
         {
             string SqlConn = ConfigurationManager.ConnectionStrings["RCLWEB"].ToString();
 

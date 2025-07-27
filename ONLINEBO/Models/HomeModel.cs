@@ -25,9 +25,9 @@ namespace ONLINEBO.Models
 
         [Display(Name = "Mobile Number:")]
         [Required(ErrorMessage = "Mobile Number is required.")]
-        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Invalid Mobile Number.")]
-        [StringLength(11, ErrorMessage = "Please enter a 11-digit Mobile Number.", MinimumLength = 11)]
-        public string Mobile { get; set; }
+		[RegularExpression(@"^\+?[0-9]+$", ErrorMessage = "Invalid Mobile Number.")]
+		//[StringLength(11, ErrorMessage = "Please enter a 11-digit Mobile Number.", MinimumLength = 11)]
+		public string Mobile { get; set; }
 
         public string Password { get; set; }
 

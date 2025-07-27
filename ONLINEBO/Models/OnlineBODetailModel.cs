@@ -95,7 +95,10 @@ namespace ONLINEBO.Models
 
         public string jNID { get; set; }
 
-        public string DesireBranch { get; set; }
+		public string RefarralCode { get; set; }
+
+
+		public string DesireBranch { get; set; }
         public string DesireBranch1 { get; set; }
 
 

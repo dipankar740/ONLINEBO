@@ -194,11 +194,11 @@
 
                         </div>
                         <div class="col-sm-4" id="abc" data-toggle="tooltip" style="font-weight:bold;">
-                            @Html.TextBoxFor(model => model.fFirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.fFirstName, required = "required" })
+                            @Html.TextBoxFor(model => model.fFirstName, new { @class = "form-control text-label", @title = "First Name", @placeholder = "First Name", Value = @item.fFirstName, required = "required"@*, @readonly = "true"*@ })
                             @Html.ValidationMessageFor(m => m.fFirstName, "", new { @class = "error" })
                         </div>
                         <div class="col-sm-5" id="abc" data-toggle="tooltip" style="font-weight:bold;">
-                            @Html.TextBoxFor(model => model.fLastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.fLastName, required = "required" })
+                            @Html.TextBoxFor(model => model.fLastName, new { @class = "form-control text-label", @title = "Last Name", @placeholder = "Last Name", Value = @item.fLastName, required = "required"@*, @readonly = "true"*@ })
                             @Html.ValidationMessageFor(m => m.fLastName, "", new { @class = "error" })
                         </div>
                     </div>
@@ -212,8 +212,7 @@
                         </div>
                         <div class="col-sm-4 " id="abc" data-toggle="tooltip">
 
-                            @Html.TextBoxFor(model => model.fDoB, new { @class = "form-control", placeholder = " Date of Birth (dd/mm/yyyy)"
-                       })
+                            @Html.TextBoxFor(model => model.fDoB, new { @class = "form-control", placeholder = " Date of Birth (day/month/year)", Value = @item.fDoB, required = "required"@*, @readonly = "true"*@ })
                             @Html.ValidationMessageFor(model => model.fDoB)
                         </div>
                         <div class="col-sm-3">
@@ -297,7 +296,7 @@
                             @Html.ValidationMessageFor(m => m.fNationality, "", new { @class = "error" })
                         </div>
                         <div class="col-sm-4" id="abc" data-toggle="tooltip">
-                            @Html.TextBoxFor(model => model.fNID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.fNID, required = "required" })
+                            @Html.TextBoxFor(model => model.fNID, new { @class = "form-control text-label", @title = "NID", @placeholder = "NID", Value = @item.fNID, required = "required"@*, @readonly = "true"*@ })
                             @Html.ValidationMessageFor(m => m.fNID, "", new { @class = "error" })
                         </div>
                         <div class="col-sm-4" id="abc" data-toggle="tooltip">
@@ -524,10 +523,18 @@
 
             <div class="panel panel-danger" style="border-color: #8a6d3b;">
                 <div class="panel-body">
-                    <div style="float:right;">
-                        <input type="submit" value="Save and Continue" class="btn btn-info" />
+                    <div style="float:left;color:blueviolet;font-weight:bold;">
+                        Enter RCL Reference Code:
                     </div>
-                </div>
+                    <div style="float:left;margin-left:10px;">
+                        @Html.TextBoxFor(model => model.RefarralCode, new { @class = "form-control text-label", @title = "Reference", @placeholder = "Enter RCL Reference Code", Value = @item.RefarralCode })
+                        @Html.ValidationMessageFor(m => m.RefarralCode, "", new { @class = "error" })
+                    </div>
+                    
+                        <div style="float:right;">
+                            <input type="submit" value="Save and Continue" class="btn btn-info" />
+                        </div>
+                    </div>
             </div>
 
 

@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Royal Capital Works\\ONLINEBO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\models\\onlinebodetaildbhandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\models\\onlinebodetaildbhandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|d:\\royal capital works\\onlinebo\\onlinebo\\controllers\\onlinebodetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\controllers\\onlinebodetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|d:\\royal capital works\\onlinebo\\onlinebo\\views\\client\\uploadimages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\views\\client\\uploadimages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\views\\client\\accountholder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\views\\client\\accountholder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\views\\branch\\uploadimages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\views\\branch\\uploadimages.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +27,16 @@
       "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\views\\client\\nomineeinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\views\\client\\nomineeinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\views\\client\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\views\\client\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|D:\\Royal Capital Works\\ONLINEBO\\onlinebo\\models\\onlinebodetailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}|ONLINEBO\\ONLINEBO.csproj|solutionrelative:onlinebo\\models\\onlinebodetailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,78 +54,114 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UploadImages.cshtml",
-              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\UploadImages.cshtml",
-              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Client\\UploadImages.cshtml",
-              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\UploadImages.cshtml",
-              "RelativeToolTip": "ONLINEBO\\Views\\Client\\UploadImages.cshtml",
-              "ViewState": "AQIAAE4AAAAAAAAAAAApwFkAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-12T06:20:33.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AccountHolder.cshtml",
-              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
-              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
-              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
-              "RelativeToolTip": "ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
-              "ViewState": "AQIAAK8AAAAAAAAAAAAAwNwAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-08-06T04:35:59.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClientController.cs",
-              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\ClientController.cs",
-              "RelativeDocumentMoniker": "ONLINEBO\\Controllers\\ClientController.cs",
-              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\ClientController.cs",
-              "RelativeToolTip": "ONLINEBO\\Controllers\\ClientController.cs",
-              "ViewState": "AQIAAOkFAAAAAAAAAAAWwP8FAAAVAAAA",
+              "Title": "OnlineBODetailController.cs",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\OnlineBODetailController.cs",
+              "RelativeDocumentMoniker": "ONLINEBO\\Controllers\\OnlineBODetailController.cs",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\OnlineBODetailController.cs",
+              "RelativeToolTip": "ONLINEBO\\Controllers\\OnlineBODetailController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-08-06T04:35:59.237Z",
+              "WhenOpened": "2025-02-26T06:34:21.935Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "ONLINEBO\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAQAAAAAAAAAAABhwCEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-08-06T04:35:58.948Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NomineeInfo.cshtml",
-              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\NomineeInfo.cshtml",
-              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Client\\NomineeInfo.cshtml",
-              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\NomineeInfo.cshtml",
-              "RelativeToolTip": "ONLINEBO\\Views\\Client\\NomineeInfo.cshtml",
-              "ViewState": "AQIAAEwAAAAAAAAAAFB2wGUAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-08-06T04:35:59.238Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "UploadImages.cshtml",
-              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Branch\\UploadImages.cshtml",
-              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Branch\\UploadImages.cshtml",
-              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Branch\\UploadImages.cshtml",
-              "RelativeToolTip": "ONLINEBO\\Views\\Branch\\UploadImages.cshtml",
-              "ViewState": "AQIAABQBAAAAAAAAAAAAAJ8AAAANAAAA",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\UploadImages.cshtml",
+              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Client\\UploadImages.cshtml",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\UploadImages.cshtml",
+              "RelativeToolTip": "ONLINEBO\\Views\\Client\\UploadImages.cshtml",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAMAAAACvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-08-06T04:35:59.239Z"
+              "WhenOpened": "2025-01-06T03:55:30.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ONLINEBO\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAC8AAACXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T06:40:28.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OnlineBoDetailDBHandle.cs",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Models\\OnlineBoDetailDBHandle.cs",
+              "RelativeDocumentMoniker": "ONLINEBO\\Models\\OnlineBoDetailDBHandle.cs",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Models\\OnlineBoDetailDBHandle.cs",
+              "RelativeToolTip": "ONLINEBO\\Models\\OnlineBoDetailDBHandle.cs",
+              "ViewState": "AgIAAB8CAAAAAAAAAAAAAC0CAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T05:36:16.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ONLINEBO\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ONLINEBO\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAAAswMwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T05:34:23.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OnlineBODetailModel.cs",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Models\\OnlineBODetailModel.cs",
+              "RelativeDocumentMoniker": "ONLINEBO\\Models\\OnlineBODetailModel.cs",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Models\\OnlineBODetailModel.cs",
+              "RelativeToolTip": "ONLINEBO\\Models\\OnlineBODetailModel.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T05:29:42.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountHolder.cshtml",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
+              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
+              "RelativeToolTip": "ONLINEBO\\Views\\Client\\AccountHolder.cshtml",
+              "ViewState": "AgIAABkBAAAAAAAAAAAAwCgBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T05:04:09.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\Index.cshtml",
+              "RelativeDocumentMoniker": "ONLINEBO\\Views\\Client\\Index.cshtml",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Views\\Client\\Index.cshtml",
+              "RelativeToolTip": "ONLINEBO\\Views\\Client\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJkAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-27T08:46:38.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClientController.cs",
+              "DocumentMoniker": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\ClientController.cs",
+              "RelativeDocumentMoniker": "ONLINEBO\\Controllers\\ClientController.cs",
+              "ToolTip": "D:\\Royal Capital Works\\ONLINEBO\\ONLINEBO\\Controllers\\ClientController.cs",
+              "RelativeToolTip": "ONLINEBO\\Controllers\\ClientController.cs",
+              "ViewState": "AgIAANgAAAAAAAAAAAAcwPkAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-08-06T04:35:59.237Z"
             }
           ]
         }

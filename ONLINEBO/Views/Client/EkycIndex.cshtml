@@ -130,10 +130,15 @@
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
-                                            @*@Html.TextBoxFor(model => model.person_dob, new { onfocus = "(this.type='date')", @class = "form-control text-label ", 
-                                           @placeholder = "Date Of Birth As Per NID", @required = "required" })*@
-                                            @Html.TextBoxFor(model => model.person_dob, new { @class = "form-control datepicker ", 
-                                           @placeholder = "dd/mm/yyyy", @required = "required", @readonly="true"})
+                                            @*@Html.TextBoxFor(model => model.person_dob, new { onfocus = "(this.type='date')", @class = "form-control text-label ",
+                @placeholder = "Date Of Birth As Per NID", @required = "required" })*@
+                                            @Html.TextBoxFor(model => model.person_dob, new
+                                            {
+                                                @class = "form-control datepicker ",
+                                           @placeholder = "dd/mm/yyyy",
+                                                @required = "required",
+                                                @readonly = "true"
+                                            })
                                         </div>
                                     </div>
                                     <p class="text-left">Upload Your Passport Size Image</p>
@@ -176,6 +181,7 @@
 
                                             <div class="col-sm-12">
                                                 @TempData["message"]
+                                                <br/><br/>
 
                                             </div>
                                         </div>
@@ -184,21 +190,36 @@
                                     <div class="form-group">
                                         @*<p class="text-left">Your NID/Smart Card Number</p>*@
                                         <div class="input-group" id="i">
-                                            @Html.TextBoxFor(model => model.mobile_otp, new {@id="otpBox", @style="display:none", @class = "form-control text-label ", @placeholder = "Enter Your OTP" })
+                                            
+                                            <input id="isInetrnational" type="checkbox"  name="isInetrnational" /> <span style="color:orangered;"> Ckick here if it's an international mobile number.</span>
+                                            @*@Html.TextBoxFor(model => model.mobile_otp, new { @id = "otpBox", @style = "display:none", @class = "form-control text-label ", @placeholder = "Enter Your OTP" })*@
                                             @*<span class="input-group-addon">
-                                                
-                                            </span>*@
-                                            @*<button class="btn btn-primary btn-block" type="submit" id="opt" name="otpbutton" 
-                                                        formaction='@Url.Action("SendOTP", "Client")'>Send OTP</button>*@
-                                            <span class="btn btn-primary btn-block"  id="btnOTP" 
-                                                        >Send OTP</span>
+
+        </span>*@
+                                            @*<button class="btn btn-primary btn-block" type="submit" id="opt" name="otpbutton"
+        formaction='@Url.Action("SendOTP", "Client")'>Send OTP</button>*@
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @*<p class="text-left">Your NID/Smart Card Number</p>*@
+                                        <div class="input-group" id="i">
+                                            @Html.TextBoxFor(model => model.mobile_otp, new { @id = "otpBox", @style = "display:none", @class = "form-control text-label ", @placeholder = "Enter Your OTP" })
+                                            @*<span class="input-group-addon">
+
+                </span>*@
+                                            @*<button class="btn btn-primary btn-block" type="submit" id="opt" name="otpbutton"
+                formaction='@Url.Action("SendOTP", "Client")'>Send OTP</button>*@
+                                            <span class="btn btn-primary btn-block" id="btnOTP">Send OTP</span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-md-offset-3 col-sm-offset-3 col-xs-12 col-sm-8 col-md-8  padding-right-zero">
-                                            <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("EkycIndex", "Client" , new {id = "fImage" })' 
-                                                    style="display:none; font-family:'Times New Roman';font-weight:bold;font-size:20px;" class="btn btn-success btn-block">Continue</button>
+                                            <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("EkycIndex", "Client" , new {id = "fImage" })'
+                                                    style="display:none; font-family:'Times New Roman';font-weight:bold;font-size:20px;" class="btn btn-success btn-block">
+                                                Continue
+                                            </button>
 
                                         </div>
                                     </div>
@@ -280,7 +301,11 @@
             $('#fImage').show();
              $.ajax({
                 "type": "POST",
-                "url": '@Url.Action("SendOTP", "Client" )',
+                 "url": '@Url.Action("SendOTP", "Client" )',
+                 "data": JSON.stringify({
+                     isInetrnationalNo: $('#isInetrnational').prop('checked'),
+                     
+                 }),
               
                // "data": JSON.stringify({ name: imagebase64data }),
                 "contentType": 'application/json',

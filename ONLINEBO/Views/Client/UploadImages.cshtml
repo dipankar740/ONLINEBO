@@ -187,6 +187,7 @@
                                     @Html.TextBoxFor(Model => Model.File, new { type = "file", onchange = "fImageURL(this)" })
                                     
                                     <div>
+
                                         <input id="Button1" type="button" value="Clear" onclick="document.getElementById('fImage').src = '/images/noimage.jpg'" />
                   
                                         <button type="submit" id="Fimage" name="button1" formaction='@Url.Action("UploadImages", "Client", new {id = "fImage" })'>Save</button>

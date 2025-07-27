@@ -17,9 +17,11 @@
     <div class="container register" style="box-shadow: 5px 5px 5px 5px #dbdad3; border-radius: 15px; ">
         <div class="row" style=" ">
             <div class="col-md-6 register-left">
-                 <img src="~/images/logoSmall.jpg" />
-                <h3>No. 1 Retail Broker in Bangladesh</h3>
+                <img src="~/images/logoSmall.jpg" />
+                <h3>Leading Stockbroker in Bangladesh</h3>
                 <p>Call Us On: 16379 or +8809606016379</p>
+
+                <iframe width="453" height="280" src="https://www.youtube.com/embed/nxxYce00h8g" title="Instant e-KYC verified Online BO Account | Step-By-Step Tutorial | Royal Capital" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
             </div>
 
@@ -28,6 +30,7 @@
                     
                         <h3 class="register-heading">Open Your BO Account Now</h3>
 
+                        
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
@@ -36,9 +39,16 @@
 
                 @Html.ValidationSummary(true)
 
-
+                
                 <div class="row" style="font-family: 'Times New Roman'; padding-top: 20%; ">
+
+                    <h5 style="padding:3%; font-weight:bold;color:orangered;font-size:16px;">
+                        @*Note: If it is an international number, use the country code of that country, and WhatsApp must be active on that number.<br /><br/>*@
+
+                        দ্রষ্টব্য:বাংলাদেশের বাহিরের নাম্বার হলে, অনুগ্রহ করে সেই দেশের কান্ট্রি কোড যুক্ত করবেন এবং সেই নাম্বারে WhatsApp থাকা আবশ্যক।
+                    </h5>
                     <div class="col-sm-6" style="padding-top:0px;">
+
                         <div class="">
                             @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control text-label", @required = "required", @placeholder = "Mobile" })
                             @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "error" })
@@ -52,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row" style="font-family: 'Times New Roman'; padding-top: 2%; color:blue; font-weight:bold; ">
                     <div class="col-sm-6" style="padding-top:10px;">
                         <div class="">
@@ -112,7 +122,7 @@
                 <div class="row" style="padding-top:20px;font-family:'Times New Roman';">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <h3>Online BO opening Guide – <a href="https://adda.royalcapitalbd.com/introducing-online-bo-account-opening-with-instant-e-kyc-verification/" target="_blank">English</a> or <a href="https://adda.royalcapitalbd.com/bo-account-opening-with-instant-e-kyc-verification/" target="_blank"> বাংলা</a></h3>
+                            <h3 style="margin-left:5px;">Online BO opening Guide – <a href="https://adda.royalcapitalbd.com/introducing-online-bo-account-opening-with-instant-e-kyc-verification/" target="_blank">English</a> or <a href="https://adda.royalcapitalbd.com/bo-account-opening-with-instant-e-kyc-verification/" target="_blank"> বাংলা</a></h3>
                         </div>
                     </div>
                 </div>

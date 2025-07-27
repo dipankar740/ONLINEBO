@@ -8,6 +8,8 @@ using System.Data;
 using System.Web.Mvc;
 using ONLINEBO.Models;
 using System.IO;
+using Windows.UI.Xaml.Controls;
+using System.Web.WebPages;
 
 namespace ONLINEBO.Models
 {
@@ -23,7 +25,7 @@ namespace ONLINEBO.Models
             SqlConnection oConnection = new SqlConnection(SqlConn);
             oConnection.Open();
 
-            string query = "SELECT [TRACKINGNO],[RCODE],[ToC],[fFirstName],[fLastName],[fOccupation],[fDoB],[fTitle],[fFName],[fMName],[fAddress],[fCity],[fPostCode],[fDivision],[fCountry],[fMobile],[fTel],[fFax],[fEmail],[fNationality],[fNID],[fTIN],[fSex],[fResidency],[jTitle],[jFirstName],[jLastName],[jOccupation],[jDoB],[jFName],[jMName],[jAddress],[jCity],[jPostCode],[jDivision],[jCountry],[jMobile],[jTel],[jFax],[jEmail],[jNID],[DesireBranch],[IsDirector],[DirectorShare],[pDate],[fIsComplete] FROM [dbo].[T_ONLINE_BO_AccountHolder] WHERE TRACKINGNO=@id";
+            string query = "SELECT [dbo].[T_ONLINE_BO_AccountHolder].[TRACKINGNO],[RCODE],[ToC],[fFirstName],[fLastName],[fOccupation],[fDoB],[fTitle],[fFName],[fMName],[fAddress],[fCity],[fPostCode],[fDivision],[fCountry],[fMobile],[fTel],[fFax],[fEmail],[fNationality],[fNID],[fTIN],[fSex],[fResidency],[jTitle],[jFirstName],[jLastName],[jOccupation],[jDoB],[jFName],[jMName],[jAddress],[jCity],[jPostCode],[jDivision],[jCountry],[jMobile],[jTel],[jFax],[jEmail],[jNID],[DesireBranch],[IsDirector],[DirectorShare],[T_ONLINE_BO_REG].[pDate],[fIsComplete],[T_ONLINE_BO_REG].[RefarralCode] FROM [dbo].[T_ONLINE_BO_AccountHolder],[dbo].[T_ONLINE_BO_REG] WHERE [dbo].[T_ONLINE_BO_AccountHolder].TRACKINGNO=[dbo].[T_ONLINE_BO_REG].TRACKINGNO AND [dbo].[T_ONLINE_BO_AccountHolder].TRACKINGNO=@id";
             SqlCommand oCommand = new SqlCommand(query, oConnection);
             oCommand.Parameters.AddWithValue("@id", id);
 
@@ -34,7 +36,8 @@ namespace ONLINEBO.Models
             {
                 //bank.Add(new BankInfo { BANKNAME = dr["BANKNAME"].ToString(), BANKBRANCH = dr["BRANCH"].ToString(), BANKDISTRICT = dr["DISTRICT"].ToString(), BANKROUTING = dr["ROUTING"].ToString() });
                 acc.Add(new OnlineBODetailModel { RCODE = dr["RCODE"].ToString(), ToC = dr["ToC"].ToString(), fFirstName = dr["fFirstName"].ToString(), 
-                    fLastName = dr["fLastName"].ToString(), fOccupation = dr["fOccupation"].ToString(), 
+                    fLastName = dr["fLastName"].ToString(), fOccupation = dr["fOccupation"].ToString(),
+                    RefarralCode = dr["RefarralCode"].ToString(), 
                     fDoB = (dr["fDoB"] == DBNull.Value ? Convert.ToDateTime("1/1/1900").ToString("dd/MM/yyyy") : Convert.ToDateTime(dr["fDoB"]).ToString("dd/MM/yyyy")), 
                     fTitle1 = dr["fTitle"].ToString(), fFName = dr["fFName"].ToString(), fMName = dr["fMName"].ToString(), fAddress = dr["fAddress"].ToString(), fCity = dr["fCity"].ToString(), fPostCode = dr["fPostCode"].ToString(), fDivision = dr["fDivision"].ToString(), fCountry = dr["fCountry"].ToString(), fMobile = dr["fMobile"].ToString(), fTel = dr["fTel"].ToString(), fFax = dr["fFax"].ToString(), fEmail = dr["fEmail"].ToString(), fNationality = dr["fNationality"].ToString(), fNID = dr["fNID"].ToString(), fTIN = dr["fTIN"].ToString(), fSex = dr["fSex"].ToString(), fResidency = dr["fResidency"].ToString(), jTitle1 = dr["jTitle"].ToString(), jFastName = dr["jFirstName"].ToString(), jLastName = dr["jLastName"].ToString(), jOccupation = dr["jOccupation"].ToString(), jDoB = (dr["jDoB"] == DBNull.Value ? Convert.ToDateTime("1/1/1900") : Convert.ToDateTime(dr["jDoB"])), jFName = dr["jFName"].ToString(), jMName = dr["jMName"].ToString(), jAddress = dr["jAddress"].ToString(), jCity = dr["jCity"].ToString(), jPostCode = dr["jPostCode"].ToString(), jDivision = dr["jDivision"].ToString(), jCountry = dr["jCountry"].ToString(), jMobile = dr["jMobile"].ToString(), jTel = dr["jTel"].ToString(), jFax = dr["jFax"].ToString(), jEmail = dr["jEmail"].ToString(), jNID = dr["jNID"].ToString(), DesireBranch1 = dr["DesireBranch"].ToString(), IsDirector = dr["IsDirector"].ToString(), DirectorShare = dr["DirectorShare"].ToString() });
             }
@@ -539,13 +542,42 @@ namespace ONLINEBO.Models
                 oConnection.Close();
 
 
-            }
+
+
+			}
             catch (Exception ex)
             {
                 return false;
             }
             if (i >= 1)
-                return true;
+            {
+				try
+				{
+					if (bomodel.RefarralCode == null || bomodel.RefarralCode == "" || bomodel.RefarralCode == "0")
+					{
+						bomodel.RefarralCode = "0";
+					}
+					string SqlConn2 = ConfigurationManager.ConnectionStrings["RCLWEB"].ToString();
+					SqlConnection oConnection2 = new SqlConnection(SqlConn2);
+
+					string query2 = "UPDATE T_ONLINE_BO_REG SET RefarralCode='" + bomodel.RefarralCode + "' Where TRACKINGNO='" + bomodel.TRACKINGNO + "'";
+
+					SqlCommand oCommand2 = new SqlCommand(query2, oConnection2);
+					oConnection2.Open();
+
+					oCommand2.ExecuteNonQuery();
+
+					oConnection2.Close();
+
+				}
+				catch (Exception ex)
+				{
+					return false;
+				}
+
+				return true;
+			}
+               
             else
                 return false;
 
